@@ -23,9 +23,7 @@ class MyApp extends StatelessWidget {
         translations: AppLocalization(),
         locale: Get.deviceLocale,
         fallbackLocale: Locale('en', 'US'),
-        title: 'rajsinh_s_application1',
-        initialRoute: AppRoutes.initialRoute,
-        getPages: AppRoutes.pages,
+        title: 'Ananta',
       );
     });
   }
