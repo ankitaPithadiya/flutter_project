@@ -26,6 +26,9 @@ class ImageConstant {
   static String imgNavConsultGray90001 =
       '$imagePath/img_nav_consult_gray_900_01.svg';
 
+  static String imgAppIcon =
+      '$imagePath/app_logo.png';
+
 // Demo_design Fourteen images
   static String imgMoreHorizFill = '$imagePath/img_more_horiz_fill.svg';
 

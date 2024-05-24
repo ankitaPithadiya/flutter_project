@@ -1,3 +1,4 @@
+import 'package:ananta/routes/app_routes.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,6 +25,9 @@ class MyApp extends StatelessWidget {
         locale: Get.deviceLocale,
         fallbackLocale: Locale('en', 'US'),
         title: 'Ananta',
+        initialRoute: AppRoutes.initialRoute,
+        getPages: AppRoutes.pages,
+
       );
     });
   }
