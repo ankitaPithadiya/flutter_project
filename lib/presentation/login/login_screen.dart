@@ -1,3 +1,4 @@
+import 'package:ananta/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
 import '../../core/utils/validation_functions.dart';
@@ -6,15 +7,16 @@ import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_floating_text_field.dart';
 import '../../widgets/custom_outlined_button.dart';
 import 'controller/login_controller.dart';
- // ignore_for_file: must_be_immutable
+
+// ignore_for_file: must_be_immutable
 // ignore_for_file: must_be_immutable
 
 // ignore_for_file: must_be_immutable
 class LoginScreen extends GetWidget<LoginController> {
   LoginScreen({Key? key})
       : super(
-    key: key,
-  );
+          key: key,
+        );
 
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -123,6 +125,10 @@ class LoginScreen extends GetWidget<LoginController> {
       text: "Login".tr,
       margin: EdgeInsets.symmetric(horizontal: 16.h),
       buttonStyle: CustomButtonStyles.fillGray,
+      isDisabled: false,
+      onPressed: () {
+        Get.toNamed(AppRoutes.homePage);
+      },
       buttonTextStyle: CustomTextStyles.titleSmallGray900,
     );
   }
