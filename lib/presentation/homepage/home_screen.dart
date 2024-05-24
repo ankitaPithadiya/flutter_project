@@ -12,13 +12,11 @@ class HomeScreen extends GetWidget<HomeController> {
       ),
       body: ListView.builder(
           itemCount: 3,
-          itemBuilder: (context, inde) {
-            return Card(
-              child: ExpansionTile(
-                title: const Text('Service Name'),
-                subtitle: const Text('Service details'),
-                children: controller.tile1List.map((index) => index).toList(),
-              ),
+          itemBuilder: (context, index) {
+            return ExpansionTile(
+              title: const Text('Service Name'),
+              subtitle: const Text('Service details'),
+              children: controller.tile1List.map((index) => index).toList(),
             );
           }),
     );
