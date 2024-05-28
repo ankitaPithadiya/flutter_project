@@ -7,7 +7,7 @@ final Map<String, String> enUs = {
   "lbl_zeel_doe": "Zeel Doe",
   "lbl_create_profile": "Create profile",
   "msg_by_creating_your":
-      "By creating your and your family members profile you will know more about your life or their life.",
+  "By creating your and your family members profile you will know more about your life or their life.",
   "msg_on_going_call": "On going call ...",
   "msg_on_going_chat_with": "On going chat with Kautiliy...",
   "lbl_free": "FREE !",
@@ -20,7 +20,7 @@ final Map<String, String> enUs = {
   "msg_replying_to_kautiliya": "Replying to Kautiliya Pandit",
   "lbl_view_profile": "View profile",
   "msg_interactive_sessions":
-      "Interactive sessions with people who think like you are on the cards.",
+  "Interactive sessions with people who think like you are on the cards.",
   "lbl_tape_to_remove": "Tape to remove",
   "lbl_you": "You",
   "msg_smileys_people": "Smileys & People",
@@ -84,7 +84,7 @@ final Map<String, String> enUs = {
   "lbl_min_completed": "min completed",
   "msg_ask_a_question_completed": "Ask a question completed",
   "msg_if_you_are_enable":
-      "If you are enable this switch, you will not get dummy messages from the astrologer side.",
+  "If you are enable this switch, you will not get dummy messages from the astrologer side.",
   "lbl_career": "Career",
   "lbl_educations": "Educations",
   "lbl_expertise": "Expertise",
@@ -116,14 +116,14 @@ final Map<String, String> enUs = {
   "lbl_see_all_reviews": "See all reviews",
   "msg_about_a_month_ago": "about a month ago",
   "msg_amazing_how_much":
-      "Amazing how much work I am able to complete using this app. ",
+  "Amazing how much work I am able to complete using this app. ",
   "msg_pretty_good_for":
-      "Pretty good for a first stab. Feature rich, but the UI isn't always very intuitive, and there are some gaping holes. ",
+  "Pretty good for a first stab. Feature rich, but the UI isn't always very intuitive, and there are some gaping holes. ",
   "msg_ratings_reviews": "Ratings & Reviews",
   "msg_the_app_runs_fine":
-      "The app runs fine, but it's missing absolute basic features that make it nearly useless.",
+  "The app runs fine, but it's missing absolute basic features that make it nearly useless.",
   "msg_there_are_some_sorely":
-      "There are some sorely lacking aspects to the app that would really help to make navigating more convenient.",
+  "There are some sorely lacking aspects to the app that would really help to make navigating more convenient.",
   "msg_indian_standard": "Indian Standard Time (IST)",
   "lbl_advertise": "Advertise",
   "lbl_idol": "Idol",
@@ -158,7 +158,7 @@ final Map<String, String> enUs = {
   "msg_select_shipping": "Select Shipping Address",
   "lbl_hide_details": "Hide details",
   "msg_once_you_apply_this":
-      "Once you apply this code you may not get it again",
+  "Once you apply this code you may not get it again",
   "msg_this_coupon_apply": "This coupon apply only on",
   "msg_you_can_apply_this": "You can apply this if your bill will about ₹5000",
   "msg_you_cannot_share": "You cannot share is coupon code with others",
@@ -190,15 +190,15 @@ final Map<String, String> enUs = {
   "msg_5_extra_on_recharge": "5% Extra on recharge of  ₹500",
   "msg_amazon_pay_mobikwik": "Amazon Pay, Mobikwik & more",
   "msg_benefits_you_will":
-      "BENEFITS:  You will ₹25 cashback with this recharge",
+  "BENEFITS:  You will ₹25 cashback with this recharge",
   "msg_credit_debit_cards": "Credit & Debit cards",
   "msg_other_payment_method": "Other Payment Method",
   "lbl_hold_on": "Hold On!",
   "lbl_ganeshaspeaks": "GaneshaSpeaks.",
   "msg_congratulations":
-      "Congratulations! Your wallet has been successfully topped up. Enjoy hassle-free transactions and thank you for choosing GaneshaSpeaks.",
+  "Congratulations! Your wallet has been successfully topped up. Enjoy hassle-free transactions and thank you for choosing GaneshaSpeaks.",
   "msg_congratulations2":
-      "Congratulations! Your wallet has been successfully topped up. Enjoy hassle-free transactions and thank you for choosing ",
+  "Congratulations! Your wallet has been successfully topped up. Enjoy hassle-free transactions and thank you for choosing ",
   "msg_view_order_history": "View Order History",
   "msg_wallet_recharge": "Wallet Recharge Successful!",
   "lbl_more_offers": "More offers",
@@ -210,7 +210,7 @@ final Map<String, String> enUs = {
   "lbl_stripe": "Stripe",
   "msg_5_extra_on_recharge2": "5% Extra on recharge of  \$500",
   "msg_benefits_you_will2":
-      "BENEFITS:  You will \$25 cashback with this recharge",
+  "BENEFITS:  You will \$25 cashback with this recharge",
   "lbl_add2": "Add",
   "lbl_add_card": "Add card",
   "lbl_card_details": "Card Details",
@@ -260,11 +260,11 @@ final Map<String, String> enUs = {
   "lbl_to2": "To- ",
   "msg_email_successfully": "Email successfully changed",
   "msg_from_rahul_joshi_gmail_com":
-      "From- Rahul.joshi@gmail.com To- vikas.ahir@gmail.com",
+  "From- Rahul.joshi@gmail.com To- vikas.ahir@gmail.com",
   "msg_rahul_joshi_gmail_com2": "Rahul.joshi@gmail.com",
   "msg_vikas_ahir_gmail_com": "vikas.ahir@gmail.com",
   "msg_this_email_is_already":
-      "This email is already registered. Please use another email Id.",
+  "This email is already registered. Please use another email Id.",
   "lbl_english": "English",
   "lbl_hindi": "Hindi",
   "lbl_maliyalam": "Maliyalam",
@@ -274,12 +274,12 @@ final Map<String, String> enUs = {
   "lbl_guj": "Guj",
   "msg_delete_account_permanently": "Delete account permanently",
   "msg_deleting_your_account":
-      "Deleting your account is a big decision - because this will erase your GaneshaSpeaks account and all associated data, including your email, phone number, any saved conversations and recordings except anything required for audit purpose. We cannot recover them once deleted.",
+  "Deleting your account is a big decision - because this will erase your GaneshaSpeaks account and all associated data, including your email, phone number, any saved conversations and recordings except anything required for audit purpose. We cannot recover them once deleted.",
   "msg_we_ll_be_sad_to": "We’ll be sad to see you go",
   "msg_ganeshaspeaks_we":
-      "GaneshaSpeaks. We appreciate your support. Please feel free to reach out anytime. Best wishes!",
+  "GaneshaSpeaks. We appreciate your support. Please feel free to reach out anytime. Best wishes!",
   "msg_thank_you_for_using":
-      "Thank you for using GaneshaSpeaks. We appreciate your support. Please feel free to reach out anytime. Best wishes!",
+  "Thank you for using GaneshaSpeaks. We appreciate your support. Please feel free to reach out anytime. Best wishes!",
   "msg_thank_you_for_using2": "Thank you for using ",
   "msg_your_account_successfully": "Your account successfully deleted",
   "lbl_delete": "Delete",
@@ -561,7 +561,7 @@ final Map<String, String> enUs = {
   "msg_66_ratings_45_reviews": "66 Ratings, 45 Reviews",
   "msg_6_00_am_9_00_pm": "6:00 AM - 9:00 PM",
   "msg_711_riverside_ave2":
-      "711 Riverside Ave Ogdensburg, New York(NY),\n13669",
+  "711 Riverside Ave Ogdensburg, New York(NY),\n13669",
   "msg_80_ratings_60_reviews": "80 Ratings, 60 Reviews",
   "msg_88_ratings_50_reviews": "88 Ratings, 50 Reviews",
   "msg_900_riverside_ave": "900 Riverside Ave Wantagh, New York(NY),\n11793",
@@ -585,9 +585,9 @@ final Map<String, String> enUs = {
   "msg_best_offers_for": "BEST OFFERS FOR YOU",
   "msg_birth_information": "Birth information",
   "msg_by_logging_in_ganeshaspeaks":
-      "By logging in GaneshaSpeaks, you agree to the Terms of Service.",
+  "By logging in GaneshaSpeaks, you agree to the Terms of Service.",
   "msg_by_logging_in_ganeshaspeaks2":
-      "By logging in GaneshaSpeaks, you agree to the ",
+  "By logging in GaneshaSpeaks, you agree to the ",
   "msg_call_123456987": "CALL - #123456987",
   "msg_can_we_start_paid": "Can we start paid chat session",
   "msg_can_we_start_paid2": "Can we start paid chat session?",
@@ -623,13 +623,13 @@ final Map<String, String> enUs = {
   "msg_let_me_see_your": "Let me see your kundli first.",
   "msg_login_to_your_account": "Login to your account",
   "msg_lorem_ipsum_has":
-      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+  "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
   "msg_lorem_ipsum_is_simply": "Lorem Ipsum is simply dummy...",
   "msg_lorem_ipsum_is_simply2": "Lorem Ipsum is simply dummy text...",
   "msg_lorem_ipsum_is_simply3":
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+  "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
   "msg_lorem_ipsum_is_simply4":
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
   "msg_lorem_ipsum_is_simply5": "Lorem Ipsum is simply dummy specimen book...",
   "msg_mon_6_00_am_7_00": "Mon, 6:00 AM -7:00 PM",
   "msg_mon_9_00_am_5_00": "Mon, 9:00 AM -5:00 PM",
@@ -638,7 +638,7 @@ final Map<String, String> enUs = {
   "msg_no_problem_sir_take": "No problem sir.Take your time",
   "msg_norfolk_island": "Norfolk Island  (+672)",
   "msg_note_orders_cannot":
-      "NOTE: Orders cannot be canceled and are non- refundable once packed for delivery.",
+  "NOTE: Orders cannot be canceled and are non- refundable once packed for delivery.",
   "msg_offers_benefits": "Offers & Benefits",
   "msg_opal_gemstone": "Opal Gemstone – 3.25",
   "msg_opal_gemstone2": "Opal Gemstone - 3.25",
@@ -647,11 +647,11 @@ final Map<String, String> enUs = {
   "msg_payment_information": "Payment Information",
   "msg_personal_profile": "Personal Profile",
   "msg_please_login_with":
-      "Please, login with the phone number, it seems your account is already linked with phone number.",
+  "Please, login with the phone number, it seems your account is already linked with phone number.",
   "msg_price_1_000": "Price: ₹1,000 - ₹15,000",
   "msg_product_description": "Product Description",
   "msg_provide_the_email":
-      "Provide the email address you used for registration",
+  "Provide the email address you used for registration",
   "msg_rahul_joshi_gmail_com": "rahul.joshi@gmail.com",
   "msg_rahul_kota_pandit": "Rahul Kota Pandit",
   "msg_raja_samal_pandit": "Raja Samal Pandit ",
@@ -675,18 +675,18 @@ final Map<String, String> enUs = {
   "msg_suggested_remedies2": "Suggested Remedies",
   "msg_supporting_line": "Supporting line text lorem...",
   "msg_supporting_line2":
-      "Supporting line text lorem ipsum dolor sit amet, consectetur.",
+  "Supporting line text lorem ipsum dolor sit amet, consectetur.",
   "msg_sure_let_me_recharge": "Sure. let me recharge my wallet first.",
   "msg_suriname_597": "Suriname  (+597)",
   "msg_terms_of_service": "Terms of Service.",
   "msg_the_otp_entered":
-      "The OTP entered is invalid/incorrect. Please try again.",
+  "The OTP entered is invalid/incorrect. Please try again.",
   "msg_this_phone_number":
-      "This phone number is already registered. Please use another number.",
+  "This phone number is already registered. Please use another number.",
   "msg_to_initiate_a_call":
-      "To initiate a call with Kautiliya Pandit, kindly ensure a minimum balance of 5 minutes (₹500) in your account. Thank you.",
+  "To initiate a call with Kautiliya Pandit, kindly ensure a minimum balance of 5 minutes (₹500) in your account. Thank you.",
   "msg_to_initiate_a_call2":
-      "To initiate a call with Kautiliya Pandit, kindly ensure a minimum balance of 5 minutes (",
+  "To initiate a call with Kautiliya Pandit, kindly ensure a minimum balance of 5 minutes (",
   "msg_to_payable_amount": "To Payable Amount",
   "msg_united_states_1": "United States  (+1)",
   "msg_waiting_for_response": "Waiting for response...",
@@ -699,8 +699,8 @@ final Map<String, String> enUs = {
   "msg_you_can_use_maximum": "You can use maximum 200 words at a time.",
   "msg_you_have_bright": "you have bright future dear.",
   "msg_you_will_get_a_job":
-      "You will get a job in this month or you will\nget promotions in your current job.",
-  "msg_your_key_to_access": "Your Key to Access - Basic Info Required",
+  "You will get a job in this month or you will\nget promotions in your current job.",
+  "msg_your_key_to_access": "Add your service expense here",
   "lbl_app_navigation": "App Navigation",
   "lbl_demo_design_104": "Demo_design 104",
   "lbl_demo_design_105": "Demo_design 105",
@@ -769,7 +769,7 @@ final Map<String, String> enUs = {
   "lbl_sign_up_three": "Sign up Three",
   "lbl_sign_up_two": "Sign up Two",
   "msg_check_your_app_s":
-      "Check your app's UI from the below demo screens of your app.",
+  "Check your app's UI from the below demo screens of your app.",
   "msg_demo_design_113": "Demo_design 113 - BottomSheet",
   "msg_demo_design_119": "Demo_design 119 - BottomSheet",
   "msg_demo_design_120": "Demo_design 120 - BottomSheet",
@@ -876,5 +876,10 @@ final Map<String, String> enUs = {
   "msg_select_contry_code3": "Select_Contry_Code Five",
   "msg_select_contry_code4": "Select_Contry_Code Seventeen",
   "msg_network_err": "Network Error",
+
+  //Add Expense
+
+  "lbl_add_expense": "Add Expense",
+
   "msg_something_went_wrong": "Something Went Wrong!"
 };
