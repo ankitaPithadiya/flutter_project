@@ -9,16 +9,14 @@ import '../models/response_login.dart';
 
 class LoginController extends GetxController {
   TextEditingController userNameController = TextEditingController();
-  TextEditingController passwordController= TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
 
-  ApiClient apiClient=ApiClient();
-
+  ApiClient apiClient = ApiClient();
 
   Future<void> loginUsers(BuildContext context) async {
     if (formKey.currentState!.validate()) {
       //show snackbar to indicate loading
-
 
       //get response from ApiClient
       dynamic res = await apiClient.login(
@@ -26,12 +24,11 @@ class LoginController extends GetxController {
         passwordController.text,
       );
       Map<String, dynamic> data = jsonDecode(res.toString());
-      ResponseLogin response= ResponseLogin.fromJson(data);
+      ResponseLogin response = ResponseLogin.fromJson(data);
 
       //if there is no error, get the user's accesstoken and pass it to HomeScreen
-      if (response.meta!.code==1) {
+      if (response.meta!.code == 1) {
         Get.toNamed(AppRoutes.homePage);
-
       } else {
         //if an error occurs, show snackbar with error message
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -41,10 +38,6 @@ class LoginController extends GetxController {
       }
     }
   }
-
-
-
-
 
   @override
   void onClose() {

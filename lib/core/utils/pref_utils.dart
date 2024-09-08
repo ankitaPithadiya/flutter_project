@@ -1,38 +1,60 @@
 import 'dart:convert';
-import 'dart:ui';
-import 'package:flutter/scheduler.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
-import '../app_export.dart'; // ignore_for_file: must_be_immutable
 
-// ignore_for_file: must_be_immutable
 class PrefUtils {
-  PrefUtils() {
-    SharedPreferences.getInstance().then((value) {
-      _sharedPreferences = value;
-    });
+  static SharedPreferences? _prefsInstance;
+
+  static Future<SharedPreferences> get _instance async =>
+      _prefsInstance ??= await SharedPreferences.getInstance();
+
+  static Future<SharedPreferences?> init() async {
+    _prefsInstance = await _instance;
+    return _prefsInstance;
   }
 
-  static SharedPreferences? _sharedPreferences;
-
-  Future<void> init() async {
-    _sharedPreferences ??= await SharedPreferences.getInstance();
-    print('SharedPreference Initialized');
+  static Future<bool> setString(String key, String value) async {
+    var prefs = await _instance;
+    return prefs.setString(key, value);
   }
 
-  ///will clear all the data stored in preference
-  void clearPreferencesData() async {
-    _sharedPreferences!.clear();
+  static String getString(String key, [String? defValue]) {
+    return _prefsInstance?.getString(key) ?? defValue ?? "";
   }
 
-  Future<void> setThemeData(String value) {
-    return _sharedPreferences!.setString('themeData', value);
+  static Future<bool> setBool(String key, bool value) async {
+    var prefs = await _instance;
+    return await prefs.setBool(key, value);
+  }
+
+  static bool getBool(String key, [bool? defValue]) {
+    return _prefsInstance?.getBool(key) ?? defValue ?? false;
+  }
+
+  static Future<bool?>? putObject(String key, Object value) async {
+    var prefs = await _instance;
+    return prefs.setString(key, json.encode(value));
+  }
+
+  static Future<bool>? clear() {
+    if (_prefsInstance == null) return null;
+    return _prefsInstance?.clear();
+  }
+
+  static Future<void>? reload() {
+    if (_prefsInstance == null) return null;
+    return _prefsInstance?.reload();
   }
 
   String getThemeData() {
     try {
-      return _sharedPreferences!.getString('themeData')!;
+      return _prefsInstance!.getString('themeData')!;
     } catch (e) {
       return 'primary';
     }
+  }
+
+  Future<void> setThemeData(String value) {
+    return _prefsInstance!.setString('themeData', value);
   }
 }
