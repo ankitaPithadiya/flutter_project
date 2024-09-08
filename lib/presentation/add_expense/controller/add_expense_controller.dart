@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../core/app_export.dart';
 import '../../../data/models/selectionPopupModel/selection_popup_model.dart';
 import '../models/add_expense_model.dart';
+import '../respository/expense_repository.dart';
 
 /// A controller class for the SignUpTwoScreen.
 ///
@@ -17,6 +18,7 @@ class AddExpenseController extends GetxController {
   Rx<AddExpenseModel> signUpTwoModelObj = AddExpenseModel().obs;
 
   Rx<String> selectGender = "".obs;
+  ExpenseRepository exRepo=ExpenseRepository();
 
   Rx<List<SelectionPopupModel>> dropdownItemList = Rx([
     SelectionPopupModel(
@@ -33,6 +35,10 @@ class AddExpenseController extends GetxController {
       title: "Item Three",
     )
   ]);
+  @override
+  onInit(){
+    exRepo.getExpenseTypeList();
+  }
 
   @override
   void onClose() {

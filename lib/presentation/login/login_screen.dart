@@ -89,9 +89,8 @@ class LoginScreen extends GetWidget<LoginController> {
         hintText: "Username".tr,
         textInputAction: TextInputAction.done,
         textInputType: TextInputType.text,
-
         validator: (value) {
-          if (!isText(value)) {
+          if (!isText(value) || value == null || value.isEmpty) {
             return "Enter Valid User Name";
           }
           return null;
@@ -108,11 +107,11 @@ class LoginScreen extends GetWidget<LoginController> {
         labelText: "Password".tr,
         labelStyle: CustomTextStyles.bodyLargeGray800,
         hintText: "Password".tr,
+        obscureText: true,
         textInputAction: TextInputAction.done,
         textInputType: TextInputType.text,
-
         validator: (value) {
-          if (!isText(value)) {
+          if (!isText(value) || value == null || value.isEmpty) {
             return "Enter Valid Password";
           }
           return null;
@@ -129,7 +128,7 @@ class LoginScreen extends GetWidget<LoginController> {
       onPressed: () {
         controller.loginUsers(context);
       },
-      buttonTextStyle: CustomTextStyles.titleSmallGray900,
+      buttonTextStyle: CustomTextStyles.titleSmallOnErrorContainer,
     );
   }
 

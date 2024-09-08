@@ -24,7 +24,7 @@ class UIUtils {
                   height: 150,
                   width: 150,
                   child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.purple),
+                    valueColor: AlwaysStoppedAnimation<Color>(ColorSchemes.primaryColorScheme.primary),
                     strokeWidth: 3,
                   ),
                 ),

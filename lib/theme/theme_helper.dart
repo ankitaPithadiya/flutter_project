@@ -200,8 +200,8 @@ class TextThemes {
 /// Class containing the supported color schemes.
 class ColorSchemes {
   static final primaryColorScheme = ColorScheme.light(
-    primary: Color(0XFF6750A4),
-    primaryContainer: Color(0XFF31111D),
+    primary: Color(0XFFea4e47),
+    primaryContainer: Color(0XFF27a5db),
     secondaryContainer: Color(0XFFEA4335),
     errorContainer: Color(0XFF4F378B),
     onErrorContainer: Color(0XFFFFFFFF),

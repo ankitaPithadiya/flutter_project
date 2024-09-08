@@ -16,13 +16,13 @@ class AuthInterceptor extends Interceptor {
   @override
   Future<void> onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
-    if (apiType == ApiType.WP) {
-      options.headers['Authorization'] = _prefsLocator;
-    } else if (apiType == ApiType.LOCATION) {
-      options.headers['x-api-key'] = ApiEndPoints.XAPI_KEY;
-    } else if (apiType == ApiType.ASTRO) {
-      options.headers['x-api-key'] = ApiEndPoints.XAPI_KEY;
-    }
+    // if (apiType == ApiType.WP) {
+    //   options.headers['Authorization'] = _prefsLocator;
+    // } else if (apiType == ApiType.LOCATION) {
+    //   options.headers['x-api-key'] = ApiEndPoints.XAPI_KEY;
+    // } else if (apiType == ApiType.ASTRO) {
+    //   options.headers['x-api-key'] = ApiEndPoints.XAPI_KEY;
+    // }
     options.headers['Content-type'] = 'application/json';
     options.headers['Accept'] = 'application/json';
     super.onRequest(options, handler);

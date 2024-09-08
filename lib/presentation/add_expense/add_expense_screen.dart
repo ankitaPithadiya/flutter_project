@@ -20,7 +20,13 @@ class AddExpenseScreen extends GetWidget<AddExpenseController> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      appBar: AppBar(),
+      appBar: AppBar(
+        title:  Text(
+            "lbl_add_expense".tr,
+            style: theme.textTheme.headlineSmall,
+          ),
+        ),
+
       body: SizedBox(
         width: SizeUtils.width,
         child: SizedBox(
@@ -32,21 +38,7 @@ class AddExpenseScreen extends GetWidget<AddExpenseController> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 16.h),
-                    child: Text(
-                      "lbl_add_expense".tr,
-                      style: theme.textTheme.headlineSmall,
-                    ),
-                  ),
-                  SizedBox(height: 10.v),
-                  Padding(
-                    padding: EdgeInsets.only(left: 16.h),
-                    child: Text(
-                      "msg_your_key_to_access".tr,
-                      style: CustomTextStyles.bodyLargeGray700,
-                    ),
-                  ),
+
                   SizedBox(height: 25.v),
 
                   _buildExpensesDes(),

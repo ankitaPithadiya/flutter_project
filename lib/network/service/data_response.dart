@@ -23,19 +23,12 @@ class DataResponse {
   DataResponse.mapResponse(Response? response, ApiType apiType) {
     data = response!.data;
     isSuccess = response.statusCode == 200 || response.statusCode == 304 ? true : false;
-    if (apiType != ApiType.ASTRO) {
       message = isSuccess == false
-          ? response.data["msg"]
+          ? response.data.toString()
           : response.requestOptions.method == "POST"
-              ? response.data["msg"]
+              ? response.data.toString()
               : response.statusMessage;
-    } else {
-      message = isSuccess == false
-          ? response.data.join(" ").toString()
-          : response.requestOptions.method == "POST"
-              ? response.data.join(" ").toString()
-              : response.statusMessage;
-    }
+
   }
 
   Map<String, dynamic> toJson() {

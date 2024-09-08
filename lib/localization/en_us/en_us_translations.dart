@@ -700,7 +700,6 @@ final Map<String, String> enUs = {
   "msg_you_have_bright": "you have bright future dear.",
   "msg_you_will_get_a_job":
   "You will get a job in this month or you will\nget promotions in your current job.",
-  "msg_your_key_to_access": "Add your service expense here",
   "lbl_app_navigation": "App Navigation",
   "lbl_demo_design_104": "Demo_design 104",
   "lbl_demo_design_105": "Demo_design 105",
@@ -880,6 +879,7 @@ final Map<String, String> enUs = {
   //Add Expense
 
   "lbl_add_expense": "Add Expense",
+  "lbl_add_service": "Add Service",
 
   "msg_something_went_wrong": "Something Went Wrong!"
 };

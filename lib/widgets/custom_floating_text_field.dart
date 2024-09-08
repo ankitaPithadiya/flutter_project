@@ -134,6 +134,7 @@ class CustomFloatingTextField extends StatelessWidget {
               bottom: MediaQuery.of(Get.context!).viewInsets.bottom),
           controller: controller,
           focusNode: focusNode,
+
           onTapOutside: (event) {
             if (focusNode != null) {
               focusNode?.unfocus();
@@ -143,6 +144,8 @@ class CustomFloatingTextField extends StatelessWidget {
           },
           autofocus: autofocus!,
           style: textStyle ?? CustomTextStyles.bodyLargeGray800,
+          autovalidateMode:
+          AutovalidateMode.onUserInteraction,
           obscureText: obscureText!,
           textInputAction: textInputAction,
           keyboardType: textInputType,

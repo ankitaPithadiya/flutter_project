@@ -10,5 +10,13 @@ class ApiEndPoints {
   static String XAPI_KEY = "";
   static String RECONNECT_NETWORK_URL = "";
 
-  static String loginApi = "";
+  static String loginApi = "users/login/";
+  static String moneySpendBy="users/getListUsers";
+  static String expenseType="ExpenseType/getListExpenseType";
+  static String companyList="Company/getListCompany";
+  static String client="Client/getListClient";
+  static String clientLocation="ClientLocation/getListClientLocation";
+  static String serviceType="ServiceType/getListServiceType";
+  static String equipmentType="EquipmentType/getListEquipmentType";
+
 }
