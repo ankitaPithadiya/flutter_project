@@ -48,6 +48,9 @@ class AddExpenseScreen extends GetWidget<AddExpenseController> {
                     ),
                   ),
                   SizedBox(height: 25.v),
+
+                  _buildExpensesDes(),
+                  SizedBox(height: 16.v),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16.h),
                     child: Center(
@@ -81,6 +84,43 @@ class AddExpenseScreen extends GetWidget<AddExpenseController> {
                     ),
                   ),
                   SizedBox(height: 16.v),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.h),
+                    child: Center(
+                      child: DropdownButtonFormField<SelectionPopupModel>(
+                        //isDense: true,
+                        hint: Text('Money Spend By'),
+                        iconSize: 24,
+                        elevation: 16,
+                        decoration: InputDecoration(
+                          contentPadding:
+                          EdgeInsets.fromLTRB(16.h, 19.v, 16.h, 17.v),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(4.h),
+                            borderSide: BorderSide(
+                              color: appTheme.gray900,
+                              width: 1,
+                            ),
+                          ),
+                        ),
+                        style: TextStyle(color: Colors.deepPurple),
+                        onChanged: (value) {},
+                        items: controller.dropdownItemList.value
+                            .map<DropdownMenuItem<SelectionPopupModel>>(
+                                (SelectionPopupModel value) {
+                              return DropdownMenuItem<SelectionPopupModel>(
+                                value: value,
+                                child: Text(value.title),
+                              );
+                            }).toList(),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 16.v),
+                  _buildExpensesDate(),
+                  SizedBox(height: 16.v),
+                  _buildServiceId(),
+                  SizedBox(height: 16.v),
                   _buildRemark(),
                   SizedBox(height: 16.v),
                   _buildAmount()
@@ -101,6 +141,66 @@ class AddExpenseScreen extends GetWidget<AddExpenseController> {
       child: CustomFloatingTextField(
         controller: controller.firstNameController,
         labelText: "Remark",
+        labelStyle: theme.textTheme.bodyLarge!,
+        hintText: "Remark",
+        alignment: Alignment.center,
+        validator: (value) {
+          if (!isText(value)) {
+            return "err_msg_please_enter_valid_text".tr;
+          }
+          return null;
+        },
+        borderDecoration: FloatingTextFormFieldStyleHelper.outlineGrayTL42,
+      ),
+    );
+  }
+
+  Widget _buildExpensesDate() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.h),
+      child: CustomFloatingTextField(
+        controller: controller.firstNameController,
+        labelText: "Expenses Date",
+        labelStyle: theme.textTheme.bodyLarge!,
+        hintText: "Expenses Date",
+        alignment: Alignment.center,
+        validator: (value) {
+          if (!isText(value)) {
+            return "err_msg_please_enter_valid_text".tr;
+          }
+          return null;
+        },
+        borderDecoration: FloatingTextFormFieldStyleHelper.outlineGrayTL42,
+      ),
+    );
+  }
+
+  Widget _buildServiceId() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.h),
+      child: CustomFloatingTextField(
+        controller: controller.firstNameController,
+        labelText: "Service Id",
+        labelStyle: theme.textTheme.bodyLarge!,
+        hintText: "Service Id",
+        alignment: Alignment.center,
+        validator: (value) {
+          if (!isText(value)) {
+            return "err_msg_please_enter_valid_text".tr;
+          }
+          return null;
+        },
+        borderDecoration: FloatingTextFormFieldStyleHelper.outlineGrayTL42,
+      ),
+    );
+  }
+
+  Widget _buildExpensesDes() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.h),
+      child: CustomFloatingTextField(
+        controller: controller.firstNameController,
+        labelText: "Expense Description",
         labelStyle: theme.textTheme.bodyLarge!,
         hintText: "Remark",
         alignment: Alignment.center,

@@ -18,7 +18,7 @@ class LoginScreen extends GetWidget<LoginController> {
           key: key,
         );
 
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class LoginScreen extends GetWidget<LoginController> {
               bottom: MediaQuery.of(context).viewInsets.bottom,
             ),
             child: Form(
-              key: _formKey,
+              key: controller.formKey,
               child: SizedBox(
                 width: double.maxFinite,
                 child: Column(
@@ -66,7 +66,7 @@ class LoginScreen extends GetWidget<LoginController> {
                     SizedBox(height: 25.v),
                     _buildPassword(),
                     SizedBox(height: 59.v),
-                    _buildContinue(),
+                    _buildContinue(context),
                     SizedBox(height: 25.v),
                   ],
                 ),
@@ -88,10 +88,11 @@ class LoginScreen extends GetWidget<LoginController> {
         labelStyle: CustomTextStyles.bodyLargeGray800,
         hintText: "Username".tr,
         textInputAction: TextInputAction.done,
-        textInputType: TextInputType.phone,
+        textInputType: TextInputType.text,
+
         validator: (value) {
-          if (!isValidPhone(value)) {
-            return "err_msg_please_enter_valid_phone_number".tr;
+          if (!isText(value)) {
+            return "Enter Valid User Name";
           }
           return null;
         },
@@ -108,10 +109,11 @@ class LoginScreen extends GetWidget<LoginController> {
         labelStyle: CustomTextStyles.bodyLargeGray800,
         hintText: "Password".tr,
         textInputAction: TextInputAction.done,
-        textInputType: TextInputType.phone,
+        textInputType: TextInputType.text,
+
         validator: (value) {
-          if (!isValidPhone(value)) {
-            return "err_msg_please_enter_valid_phone_number".tr;
+          if (!isText(value)) {
+            return "Enter Valid Password";
           }
           return null;
         },
@@ -120,114 +122,16 @@ class LoginScreen extends GetWidget<LoginController> {
   }
 
   /// Section Widget
-  Widget _buildContinue() {
+  Widget _buildContinue(BuildContext context) {
     return CustomElevatedButton(
       text: "Login".tr,
       margin: EdgeInsets.symmetric(horizontal: 16.h),
-      buttonStyle: CustomButtonStyles.fillGray,
-      isDisabled: false,
       onPressed: () {
-        Get.toNamed(AppRoutes.homePage);
+        controller.loginUsers(context);
       },
       buttonTextStyle: CustomTextStyles.titleSmallGray900,
     );
   }
 
-  /// Section Widget
-  Widget _buildRowdividerone() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.h),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(
-              top: 7.v,
-              bottom: 8.v,
-            ),
-            child: SizedBox(
-              width: 151.h,
-              child: Divider(
-                color: appTheme.gray10002,
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 4.h),
-            child: Text(
-              "lbl_or".tr,
-              style: CustomTextStyles.bodyMediumGray60001,
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-              top: 7.v,
-              bottom: 8.v,
-            ),
-            child: SizedBox(
-              width: 154.h,
-              child: Divider(
-                color: appTheme.gray10002,
-                indent: 4.h,
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
 
-  /// Section Widget
-  Widget _buildSigninwith() {
-    return CustomOutlinedButton(
-      text: "msg_sign_in_with_google".tr,
-      margin: EdgeInsets.symmetric(horizontal: 16.h),
-      leftIcon: Container(
-        margin: EdgeInsets.only(right: 9.h),
-        child: CustomImageView(
-          imagePath: ImageConstant.imgGoogle,
-          height: 15.adaptSize,
-          width: 15.adaptSize,
-        ),
-      ),
-      buttonStyle: CustomButtonStyles.outlineGray,
-      buttonTextStyle: theme.textTheme.titleSmall!,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildSigninwith1() {
-    return CustomOutlinedButton(
-      text: "msg_sign_in_with_apple".tr,
-      margin: EdgeInsets.symmetric(horizontal: 16.h),
-      leftIcon: Container(
-        margin: EdgeInsets.only(right: 8.h),
-        child: CustomImageView(
-          imagePath: ImageConstant.imgApple,
-          height: 18.adaptSize,
-          width: 18.adaptSize,
-        ),
-      ),
-      buttonStyle: CustomButtonStyles.outlineGray,
-      buttonTextStyle: theme.textTheme.titleSmall!,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildSigninwith2() {
-    return CustomOutlinedButton(
-      text: "msg_sign_in_with_email".tr,
-      margin: EdgeInsets.symmetric(horizontal: 16.h),
-      leftIcon: Container(
-        margin: EdgeInsets.only(right: 8.h),
-        child: CustomImageView(
-          imagePath: ImageConstant.imgIconBlack900,
-          height: 18.adaptSize,
-          width: 18.adaptSize,
-        ),
-      ),
-      buttonStyle: CustomButtonStyles.outlineGray,
-      buttonTextStyle: theme.textTheme.titleSmall!,
-    );
-  }
 }
