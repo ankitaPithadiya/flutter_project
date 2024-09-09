@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../../../core/app_export.dart';
 import '../../../data/models/selectionPopupModel/selection_popup_model.dart';
 import '../models/add_expense_model.dart';
+import '../models/expense_type_model.dart';
+import '../models/money_spend_by.dart';
 import '../respository/expense_repository.dart';
 
 /// A controller class for the SignUpTwoScreen.
@@ -9,42 +11,40 @@ import '../respository/expense_repository.dart';
 /// This class manages the state of the SignUpTwoScreen, including the
 /// current signUpTwoModelObj
 class AddExpenseController extends GetxController {
-  TextEditingController firstNameController = TextEditingController();
+  TextEditingController serviceIdController = TextEditingController();
 
-  TextEditingController lastNameController = TextEditingController();
+  TextEditingController expenseController = TextEditingController();
 
-  TextEditingController mobileNumberController = TextEditingController();
+  TextEditingController dateController = TextEditingController();
+  TextEditingController amountController = TextEditingController();
+  TextEditingController remarkController = TextEditingController();
 
   Rx<AddExpenseModel> signUpTwoModelObj = AddExpenseModel().obs;
 
-  Rx<String> selectGender = "".obs;
-  ExpenseRepository exRepo=ExpenseRepository();
+  RxList<ExpenseTypeModel>? expenseList = <ExpenseTypeModel>[].obs;
+  RxList<MoneySpendByModel>? moneySpendByList = <MoneySpendByModel>[].obs;
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  Rx<List<SelectionPopupModel>> dropdownItemList = Rx([
-    SelectionPopupModel(
-      id: 1,
-      title: "Item One",
-      isSelected: true,
-    ),
-    SelectionPopupModel(
-      id: 2,
-      title: "Item Two",
-    ),
-    SelectionPopupModel(
-      id: 3,
-      title: "Item Three",
-    )
-  ]);
+  Rx<String> selectGender = "".obs;
+  ExpenseRepository exRepo = ExpenseRepository();
+
   @override
-  onInit(){
-    exRepo.getExpenseTypeList();
+  onInit() {
+    getExpenseList();
+    getMoneySpendByList();
+  }
+
+  void getExpenseList() async {
+    expenseList!.value = await exRepo.getExpenseTypeList();
+  }
+
+  void getMoneySpendByList() async{
+    moneySpendByList!.value = await exRepo.getMoneySpendList();
   }
 
   @override
   void onClose() {
     super.onClose();
-    firstNameController.dispose();
-    lastNameController.dispose();
-    mobileNumberController.dispose();
+    dateController.dispose();
   }
 }

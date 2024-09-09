@@ -1,17 +1,17 @@
 import '../../login/models/response_login.dart';
 
 class ResponseMoneySpendBy {
-  List<GetByIDResponseUsersViewModels>? getByIDResponseUsersViewModels;
+  List<MoneySpendByModel>? moneySpendByModel;
   Meta? meta;
 
-  ResponseMoneySpendBy({this.getByIDResponseUsersViewModels, this.meta});
+  ResponseMoneySpendBy({this.moneySpendByModel, this.meta});
 
   ResponseMoneySpendBy.fromJson(Map<String, dynamic> json) {
     if (json['getByIDResponseUsersViewModels'] != null) {
-      getByIDResponseUsersViewModels = <GetByIDResponseUsersViewModels>[];
+      moneySpendByModel = <MoneySpendByModel>[];
       json['getByIDResponseUsersViewModels'].forEach((v) {
-        getByIDResponseUsersViewModels!
-            .add(new GetByIDResponseUsersViewModels.fromJson(v));
+        moneySpendByModel!
+            .add(new MoneySpendByModel.fromJson(v));
       });
     }
     meta = json['meta'] != null ? new Meta.fromJson(json['meta']) : null;
@@ -19,9 +19,9 @@ class ResponseMoneySpendBy {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.getByIDResponseUsersViewModels != null) {
+    if (this.moneySpendByModel != null) {
       data['getByIDResponseUsersViewModels'] =
-          this.getByIDResponseUsersViewModels!.map((v) => v.toJson()).toList();
+          this.moneySpendByModel!.map((v) => v.toJson()).toList();
     }
     if (this.meta != null) {
       data['meta'] = this.meta!.toJson();
@@ -30,7 +30,7 @@ class ResponseMoneySpendBy {
   }
 }
 
-class GetByIDResponseUsersViewModels {
+class MoneySpendByModel {
   int? id;
   String? fullName;
   String? userName;
@@ -41,7 +41,7 @@ class GetByIDResponseUsersViewModels {
   String? address;
   String? dateOfBirth;
 
-  GetByIDResponseUsersViewModels(
+  MoneySpendByModel(
       {this.id,
         this.fullName,
         this.userName,
@@ -52,7 +52,7 @@ class GetByIDResponseUsersViewModels {
         this.address,
         this.dateOfBirth});
 
-  GetByIDResponseUsersViewModels.fromJson(Map<String, dynamic> json) {
+  MoneySpendByModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     fullName = json['fullName'];
     userName = json['userName'];
