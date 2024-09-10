@@ -1,17 +1,17 @@
 import '../../login/models/response_login.dart';
 
-class ResponseServiceType {
-  List<ServiceTypeModel>? serviceTypeModel;
+class ResponseEquipmentTypeModel {
+  List<EquipmentType>? equipmentTypeModel;
   Meta? meta;
 
-  ResponseServiceType({this.serviceTypeModel, this.meta});
+  ResponseEquipmentTypeModel({this.equipmentTypeModel, this.meta});
 
-  ResponseServiceType.fromJson(Map<String, dynamic> json) {
+  ResponseEquipmentTypeModel.fromJson(Map<String, dynamic> json) {
     if (json['getByIDResponseMasterViewModels'] != null) {
-      serviceTypeModel = <ServiceTypeModel>[];
+      equipmentTypeModel = <EquipmentType>[];
       json['getByIDResponseMasterViewModels'].forEach((v) {
-        serviceTypeModel!
-            .add(new ServiceTypeModel.fromJson(v));
+        equipmentTypeModel!
+            .add(new EquipmentType.fromJson(v));
       });
     }
     meta = json['meta'] != null ? new Meta.fromJson(json['meta']) : null;
@@ -19,9 +19,9 @@ class ResponseServiceType {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.serviceTypeModel != null) {
+    if (this.equipmentTypeModel != null) {
       data['getByIDResponseMasterViewModels'] =
-          this.serviceTypeModel!.map((v) => v.toJson()).toList();
+          this.equipmentTypeModel!.map((v) => v.toJson()).toList();
     }
     if (this.meta != null) {
       data['meta'] = this.meta!.toJson();
@@ -30,13 +30,13 @@ class ResponseServiceType {
   }
 }
 
-class ServiceTypeModel {
+class EquipmentType {
   int? id;
   String? name;
 
-  ServiceTypeModel({this.id, this.name});
+  EquipmentType({this.id, this.name});
 
-  ServiceTypeModel.fromJson(Map<String, dynamic> json) {
+  EquipmentType.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
   }
@@ -48,3 +48,4 @@ class ServiceTypeModel {
     return data;
   }
 }
+

@@ -1,17 +1,17 @@
 import '../../login/models/response_login.dart';
 
 class ResponseClient {
-  List<GetByIDResponseCompanyViewModels>? getByIDResponseCompanyViewModels;
+  List<ClientModel>? clientModel;
   Meta? meta;
 
-  ResponseClient({this.getByIDResponseCompanyViewModels, this.meta});
+  ResponseClient({this.clientModel, this.meta});
 
   ResponseClient.fromJson(Map<String, dynamic> json) {
     if (json['getByIDResponseCompanyViewModels'] != null) {
-      getByIDResponseCompanyViewModels = <GetByIDResponseCompanyViewModels>[];
+      clientModel = <ClientModel>[];
       json['getByIDResponseCompanyViewModels'].forEach((v) {
-        getByIDResponseCompanyViewModels!
-            .add(new GetByIDResponseCompanyViewModels.fromJson(v));
+        clientModel!
+            .add(new ClientModel.fromJson(v));
       });
     }
     meta = json['meta'] != null ? new Meta.fromJson(json['meta']) : null;
@@ -19,9 +19,9 @@ class ResponseClient {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.getByIDResponseCompanyViewModels != null) {
+    if (this.clientModel != null) {
       data['getByIDResponseCompanyViewModels'] = this
-          .getByIDResponseCompanyViewModels!
+          .clientModel!
           .map((v) => v.toJson())
           .toList();
     }
@@ -32,13 +32,13 @@ class ResponseClient {
   }
 }
 
-class GetByIDResponseCompanyViewModels {
+class ClientModel {
   int? id;
   String? name;
 
-  GetByIDResponseCompanyViewModels({this.id, this.name});
+  ClientModel({this.id, this.name});
 
-  GetByIDResponseCompanyViewModels.fromJson(Map<String, dynamic> json) {
+  ClientModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
   }
