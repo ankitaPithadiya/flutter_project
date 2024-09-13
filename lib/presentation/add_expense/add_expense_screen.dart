@@ -136,10 +136,11 @@ class AddExpenseScreen extends GetWidget<AddExpenseController> {
         hintText: "Remark",
         alignment: Alignment.center,
         validator: (value) {
-          if (!isText(value)) {
-            return "err_msg_please_enter_valid_text".tr;
+          if (value == null || value.isEmpty) {
+            return "Please Enter Remark";
           }
           return null;
+
         },
         borderDecoration: FloatingTextFormFieldStyleHelper.outlineGrayTL42,
       ),
@@ -217,8 +218,8 @@ class AddExpenseScreen extends GetWidget<AddExpenseController> {
         alignment: Alignment.center,
         textInputType: TextInputType.text,
         validator: (value) {
-          if (!isText(value)) {
-            return "err_msg_please_enter_valid_text".tr;
+          if (value == null || value.isEmpty) {
+            return "Please Enter Description";
           }
           return null;
         },

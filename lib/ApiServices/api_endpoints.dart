@@ -18,5 +18,7 @@ class ApiEndPoints {
   static String clientLocation="ClientLocation/getListClientLocation";
   static String serviceType="ServiceType/getListServiceType";
   static String equipmentType="EquipmentType/getListEquipmentType";
+  static String addService="Service/addService";
+  static String addExpense="Expense/addExpense";
 
 }

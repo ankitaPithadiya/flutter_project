@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../core/app_export.dart';
 import '../../../data/models/selectionPopupModel/selection_popup_model.dart';
+import '../../../network/service/data_response.dart';
 import '../add_service_repository/service_repository.dart';
 import '../models/add_service_model.dart';
 import '../models/client_location_model.dart';
@@ -19,9 +20,8 @@ class AddServiceController extends GetxController {
   TextEditingController userComplainController = TextEditingController();
 
 
-  Rx<AddServiceModel> signUpTwoModelObj = AddServiceModel().obs;
 
-
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AddServiceRepository addServiceRepo=AddServiceRepository();
 
   RxList<CompanyModel>? companyList = <CompanyModel>[].obs;
@@ -29,6 +29,13 @@ class AddServiceController extends GetxController {
   RxList<ClientModel>? clientList = <ClientModel>[].obs;
   RxList<EquipmentType>? equipmentList = <EquipmentType>[].obs;
   RxList<ClientLocationModel>? clientLocationList = <ClientLocationModel>[].obs;
+
+  Rx<CompanyModel> companyModel=CompanyModel().obs;
+  Rx<ServiceTypeModel> serviceTypeModel=ServiceTypeModel().obs;
+  Rx<ClientModel> clientModel=ClientModel().obs;
+  Rx<EquipmentType> equipmentModel=EquipmentType().obs;
+  Rx<ClientLocationModel> clientLocationModel=ClientLocationModel().obs;
+  Rx<SelectionPopupModel> selectPopupModel=SelectionPopupModel(title: '').obs;
 
 
   @override
@@ -70,6 +77,27 @@ class AddServiceController extends GetxController {
 
   void getClientLocationList() async{
     clientLocationList!.value = await addServiceRepo.getClientLocation();
+  }
+
+  void addService(BuildContext context) async{
+    if (formKey.currentState!.validate()) {
+      RequestAddService requestService=RequestAddService(
+          clientID:clientModel.value.id!,
+          clientLocationID:clientLocationModel.value.id!,
+          serviceTypeID:serviceTypeModel.value.id!,
+          userComplaint:userComplainController.text,
+          systemDown:selectPopupModel.value.title=="true"?true:false,
+          equipmentTypeID:equipmentModel.value.id!,
+          companyId:companyModel.value.id!,
+          userName:firstNameController.text,
+          createdBy:0
+      );
+
+      DataResponse response=await addServiceRepo.addService(requestService);
+      if (response.isSuccess == true) {
+        Get.back();
+      }
+    }
   }
 
 

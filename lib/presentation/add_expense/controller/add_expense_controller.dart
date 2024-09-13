@@ -19,13 +19,14 @@ class AddExpenseController extends GetxController {
   TextEditingController amountController = TextEditingController();
   TextEditingController remarkController = TextEditingController();
 
-  Rx<AddExpenseModel> signUpTwoModelObj = AddExpenseModel().obs;
 
   RxList<ExpenseTypeModel>? expenseList = <ExpenseTypeModel>[].obs;
   RxList<MoneySpendByModel>? moneySpendByList = <MoneySpendByModel>[].obs;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  Rx<String> selectGender = "".obs;
+  Rx<ExpenseTypeModel> expenseTypeModel=ExpenseTypeModel().obs;
+  Rx<MoneySpendByModel> moneySpendBy=MoneySpendByModel().obs;
+
   ExpenseRepository exRepo = ExpenseRepository();
 
   @override
