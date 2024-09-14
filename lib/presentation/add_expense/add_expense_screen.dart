@@ -60,7 +60,9 @@ class AddExpenseScreen extends GetWidget<AddExpenseController> {
                               ),
                             ),
                             style: TextStyle(color: Colors.deepPurple),
-                            onChanged: (value) {},
+                            onChanged: (value) {
+                              controller.expenseTypeModel.value=value!;
+                            },
                             items: controller.expenseList!.value
                                 .map<DropdownMenuItem<ExpenseTypeModel>>(
                                     (ExpenseTypeModel value) {
@@ -69,6 +71,9 @@ class AddExpenseScreen extends GetWidget<AddExpenseController> {
                                 child: Text(value.name!,style:CustomTextStyles.bodyMediumBlack900),
                               );
                             }).toList(),
+                            validator: (ExpenseTypeModel? value) {
+                              return value == null ? "Select Expense Type" : null;
+                            },
                           ),
                         ),
                       )),
@@ -94,7 +99,9 @@ class AddExpenseScreen extends GetWidget<AddExpenseController> {
                             ),
                           ),
                           //style: TextStyle(color: Colors.deepPurple),
-                          onChanged: (value) {},
+                          onChanged: (value) {
+                            controller.moneySpendBy.value=value!;
+                          },
                           items: controller.moneySpendByList!.value
                               .map<DropdownMenuItem<MoneySpendByModel>>(
                                   (MoneySpendByModel value) {
@@ -103,6 +110,10 @@ class AddExpenseScreen extends GetWidget<AddExpenseController> {
                               child: Text(value.fullName!,style:CustomTextStyles.bodyMediumBlack900),
                             );
                           }).toList(),
+                          validator: (MoneySpendByModel? value) {
+                            return value == null ? "Select MoneySpend By" : null;
+                          },
+
                         ),
                       ),
                     ),
@@ -121,7 +132,7 @@ class AddExpenseScreen extends GetWidget<AddExpenseController> {
           ),
         ),
       ),
-      bottomNavigationBar: _buildContinue(),
+      bottomNavigationBar: _buildContinue(context),
     );
   }
 
@@ -254,13 +265,16 @@ class AddExpenseScreen extends GetWidget<AddExpenseController> {
 
 
   /// Section Widget
-  Widget _buildContinue() {
+  Widget _buildContinue(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(bottom: 20),
       child: CustomElevatedButton(
         text: "Submit",
         margin: EdgeInsets.symmetric(horizontal: 16.h),
         buttonTextStyle: CustomTextStyles.titleSmallOnErrorContainer_1,
+        onPressed: () {
+          controller.addExpense(context);
+        },
       ),
     );
   }

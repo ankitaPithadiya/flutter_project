@@ -12,131 +12,158 @@ class HomeScreen extends GetWidget<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Service List"),
+          title: Text("Service List"),
           automaticallyImplyLeading: false,
-        actions: <Widget>[
-      IconButton(
-      icon: Icon(
-          Icons.date_range,
-        color: Colors.black,
-      ),
-      onPressed: () {
-        // do something
-      },
-      )
-      ]
-    ),
-
-      body: Column(
-          children:<Widget>[
-
-            Divider(
-              color: Colors.grey,
-              thickness: 1,
-            ),
-            SizedBox(
-                height:10.v
-            ),
-            Row(
-                children:<Widget>[
-                  SizedBox(
-                    width:20.h
-                  ),
-                  CustomOutlinedButton(
-                    height: 32.v,
-                    width: 90.h,
-                    text: "Add Expense",
-                    onPressed: () {
-                      Get.toNamed(AppRoutes.addExpense);
-
-                    },
-                    buttonStyle: CustomButtonStyles.outlineDeepPurple,
-                    buttonTextStyle: CustomTextStyles.titleSmallGray800,
-                    alignment: Alignment.bottomCenter,
-                  ),
-                  SizedBox(
-                      width:10.h
-                  ),
-                  CustomOutlinedButton(
-                    height: 32.v,
-                    width: 90.h,
-                    text: "Add Service",
-                    onPressed: () {
-                      Get.toNamed(AppRoutes.addService);
-
-                    },
-                    buttonStyle: CustomButtonStyles.outlineDeepPurple,
-                    buttonTextStyle: CustomTextStyles.titleSmallGray800,
-                    alignment: Alignment.bottomCenter,
-                  ),
-                  SizedBox(
-                      width:10.h
-                  ),
-                  CustomOutlinedButton(
-                    height: 32.v,
-                    width: 90.h,
-                    text: "View Expense",
-                    onPressed: () {
-                      // Get.toNamed(AppRoutes.addExpense);
-
-                    },
-                    buttonStyle: CustomButtonStyles.outlineDeepPurple,
-                    buttonTextStyle: CustomTextStyles.titleSmallGray800,
-                    alignment: Alignment.bottomCenter,
-                  ),
-                  ]
-            ),
-            SizedBox(
-                height:10.v
-            ),
-
-            Divider(
-              color: Colors.grey,
-              thickness: 1,
-            ),
-            SizedBox(
-                height:10.v
-            ),
-
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.date_range,
+                color: Colors.black,
+              ),
+              onPressed: () {
+                // do something
+              },
+            )
+          ]),
+      body: Column(children: <Widget>[
+        Divider(
+          color: Colors.grey,
+          thickness: 1,
+        ),
+        SizedBox(height: 10.v),
+        Row(children: <Widget>[
+          SizedBox(width: 20.h),
+          CustomOutlinedButton(
+            height: 32.v,
+            width: 90.h,
+            text: "Add Expense",
+            onPressed: () {
+              Get.toNamed(AppRoutes.addExpense);
+            },
+            buttonStyle: CustomButtonStyles.outlineDeepPurple,
+            buttonTextStyle: CustomTextStyles.titleSmallGray800,
+            alignment: Alignment.bottomCenter,
+          ),
+          SizedBox(width: 10.h),
+          CustomOutlinedButton(
+            height: 32.v,
+            width: 90.h,
+            text: "Add Service",
+            onPressed: () {
+              Get.toNamed(AppRoutes.addService);
+            },
+            buttonStyle: CustomButtonStyles.outlineDeepPurple,
+            buttonTextStyle: CustomTextStyles.titleSmallGray800,
+            alignment: Alignment.bottomCenter,
+          ),
+          SizedBox(width: 10.h),
+          CustomOutlinedButton(
+            height: 32.v,
+            width: 90.h,
+            text: "View Expense",
+            onPressed: () {
+              // Get.toNamed(AppRoutes.addExpense);
+            },
+            buttonStyle: CustomButtonStyles.outlineDeepPurple,
+            buttonTextStyle: CustomTextStyles.titleSmallGray800,
+            alignment: Alignment.bottomCenter,
+          ),
+        ]),
+        SizedBox(height: 10.v),
+        Divider(
+          color: Colors.grey,
+          thickness: 1,
+        ),
+        SizedBox(height: 10.v),
         Expanded(
-          child:ListView.builder(
-              itemCount: 3,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Service name'),
-                          Text(
-                            'Service name',
-                            style: TextStyle(fontSize: 12.fSize),
-                          )
-                        ],
-                      ),
-                      // CustomOutlinedButton(
-                      //   height: 32.v,
-                      //   width: 90.h,
-                      //   text: "Add Expense",
-                      //   onPressed: () {
-                      //     Get.toNamed(AppRoutes.addExpense);
-                      //
-                      //   },
-                      //   buttonStyle: CustomButtonStyles.outlineDeepPurple,
-                      //   buttonTextStyle: CustomTextStyles.titleSmallGray800,
-                      //   alignment: Alignment.bottomCenter,
-                      // ),
-                    ],
-                  ),
-                  // children: controller.tile1List.map((index) => index).toList(),
-                );
-              })
-        )
-        ]
-      ),
+            child: Obx(() => ListView.builder(
+                itemCount: controller.serviceReportList!.value.length,
+                itemBuilder: (context, index) {
+                  return Card.outlined(
+                      elevation: 5,
+                      color: appTheme.gray100,
+                      margin: EdgeInsets.symmetric(horizontal: 10.h,vertical:10.v),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(30))),
+                      child: ListTile(
+                        title: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(height: 10.v),
+                                Row(
+                                  children:[
+                                    Text('Service Id:'),
+                                    Text(
+                                      controller.serviceReportList![index].serviceId.toString(),
+                                    )
+                                  ]
+                                ),
+                                SizedBox(height: 5.v),
+                                Row(
+                                    children:[
+                                      Text('Client Location:'),
+                                      Text(
+                                        controller.serviceReportList![index].clientLocation.toString(),
+                                      )
+                                    ]
+                                ),
+                                SizedBox(height: 5.v),
+                                Row(
+                                    children:[
+                                      Text('User Name:'),
+                                      Text(
+                                        controller.serviceReportList![index].userName.toString(),
+                                      )
+                                    ]
+                                ),
+                                SizedBox(height: 5.v),
+                                Row(
+                                    children:[
+                                      Text('User Complain:'),
+                                      Text(
+                                        controller.serviceReportList![index].userComplaint.toString(),
+                                      )
+                                    ]
+                                ),
+                                SizedBox(height: 5.v),
+                                Row(
+                                    children:[
+                                      Text('Service Type:'),
+                                      Text(
+                                        controller.serviceReportList![index].serviceType.toString(),
+                                      )
+                                    ]
+                                ),
+                                SizedBox(height: 5.v),
+                                Row(
+                                    children:[
+                                      Text('Equipment Type:'),
+                                      Text(
+                                        controller.serviceReportList![index].equipmentType.toString(),
+                                      )
+                                    ]
+                                ),
+                                SizedBox(height: 5.v),
+                                Row(
+                                    children:[
+                                      Text('Service Status:'),
+                                      Text(
+                                        controller.serviceReportList![index].serviceStatus.toString(),
+                                      )
+                                    ]
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                        // children: controller.tile1List.map((index) => index).toList(),
+                      ));
+                })))
+      ]),
     );
   }
 }
