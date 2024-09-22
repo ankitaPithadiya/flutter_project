@@ -1,14 +1,17 @@
 class ResponseAddService {
+  int? flag;
   Meta? meta;
 
-  ResponseAddService({this.meta});
+  ResponseAddService({this.flag, this.meta});
 
   ResponseAddService.fromJson(Map<String, dynamic> json) {
+    flag = json['flag'];
     meta = json['meta'] != null ? new Meta.fromJson(json['meta']) : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['flag'] = this.flag;
     if (this.meta != null) {
       data['meta'] = this.meta!.toJson();
     }
@@ -37,3 +40,4 @@ class Meta {
     return data;
   }
 }
+

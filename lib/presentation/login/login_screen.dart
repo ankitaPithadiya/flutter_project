@@ -111,7 +111,7 @@ class LoginScreen extends GetWidget<LoginController> {
         textInputAction: TextInputAction.done,
         textInputType: TextInputType.text,
         validator: (value) {
-          if (!isText(value) || value == null || value.isEmpty) {
+          if (value == null || value.isEmpty) {
             return "Enter Valid Password";
           }
           return null;

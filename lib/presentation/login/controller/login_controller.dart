@@ -3,7 +3,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../AppConfig/StringConstant.dart';
 import '../../../core/httpwrapper/api_client.dart';
+import '../../../core/utils/pref_utils.dart';
 import '../../../network/service/data_response.dart';
 import '../../../routes/app_routes.dart';
 import '../models/response_login.dart';
@@ -26,12 +28,14 @@ class LoginController extends GetxController {
           userNameController.text, passwordController.text);
       if (dataResponse.isSuccess == true) {
         // print(dataResponse);
-        Map<String, dynamic> data = jsonDecode(dataResponse.data.toString());
-        ResponseLogin response = ResponseLogin.fromJson(data);
+        //Map<String, dynamic> data = jsonDecode(dataResponse.data.toString());
+        ResponseLogin response = ResponseLogin.fromJson(dataResponse.data);
 
         //if there is no error, get the user's accesstoken and pass it to HomeScreen
         if (response.meta!.code == 1) {
-          Get.toNamed(AppRoutes.homePage);
+          await PrefUtils.setString(StringConstant.userId,response.getByIDResponseUsersViewModel!.id.toString());
+          await PrefUtils.setString(StringConstant.username,response.getByIDResponseUsersViewModel!.fullName.toString());
+          Get.offNamed(AppRoutes.homePage);
         } else {
           //if an error occurs, show snackbar with error message
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(

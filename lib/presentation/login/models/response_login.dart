@@ -1,29 +1,28 @@
 class ResponseLogin {
-  List<GetByIDResponseClientLocationViewModels>?
-  getByIDResponseClientLocationViewModels;
+  GetByIDResponseUsersViewModel? getByIDResponseUsersViewModel;
+  Token? token;
   Meta? meta;
 
-  ResponseLogin({this.getByIDResponseClientLocationViewModels, this.meta});
+  ResponseLogin({this.getByIDResponseUsersViewModel, this.token, this.meta});
 
   ResponseLogin.fromJson(Map<String, dynamic> json) {
-    if (json['getByIDResponseClientLocationViewModels'] != null) {
-      getByIDResponseClientLocationViewModels =
-      <GetByIDResponseClientLocationViewModels>[];
-      json['getByIDResponseClientLocationViewModels'].forEach((v) {
-        getByIDResponseClientLocationViewModels!
-            .add(new GetByIDResponseClientLocationViewModels.fromJson(v));
-      });
-    }
+    getByIDResponseUsersViewModel =
+        json['getByIDResponseUsersViewModel'] != null
+            ? new GetByIDResponseUsersViewModel.fromJson(
+                json['getByIDResponseUsersViewModel'])
+            : null;
+    token = json['token'] != null ? new Token.fromJson(json['token']) : null;
     meta = json['meta'] != null ? new Meta.fromJson(json['meta']) : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.getByIDResponseClientLocationViewModels != null) {
-      data['getByIDResponseClientLocationViewModels'] = this
-          .getByIDResponseClientLocationViewModels!
-          .map((v) => v.toJson())
-          .toList();
+    if (this.getByIDResponseUsersViewModel != null) {
+      data['getByIDResponseUsersViewModel'] =
+          this.getByIDResponseUsersViewModel!.toJson();
+    }
+    if (this.token != null) {
+      data['token'] = this.token!.toJson();
     }
     if (this.meta != null) {
       data['meta'] = this.meta!.toJson();
@@ -32,31 +31,40 @@ class ResponseLogin {
   }
 }
 
-class GetByIDResponseClientLocationViewModels {
+class GetByIDResponseUsersViewModel {
   int? id;
-  int? clientID;
-  String? name;
-  String? fullAddress;
-  String? contactNo;
+  String? fullName;
 
-  GetByIDResponseClientLocationViewModels(
-      {this.id, this.clientID, this.name, this.fullAddress, this.contactNo});
+  GetByIDResponseUsersViewModel({this.id, this.fullName});
 
-  GetByIDResponseClientLocationViewModels.fromJson(Map<String, dynamic> json) {
+  GetByIDResponseUsersViewModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    clientID = json['clientID'];
-    name = json['name'];
-    fullAddress = json['fullAddress'];
-    contactNo = json['contactNo'];
+    fullName = json['fullName'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
-    data['clientID'] = this.clientID;
-    data['name'] = this.name;
-    data['fullAddress'] = this.fullAddress;
-    data['contactNo'] = this.contactNo;
+    data['fullName'] = this.fullName;
+    return data;
+  }
+}
+
+class Token {
+  String? jwtToken;
+  String? jwtExpiration;
+
+  Token({this.jwtToken, this.jwtExpiration});
+
+  Token.fromJson(Map<String, dynamic> json) {
+    jwtToken = json['jwtToken'];
+    jwtExpiration = json['jwtExpiration'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['jwtToken'] = this.jwtToken;
+    data['jwtExpiration'] = this.jwtExpiration;
     return data;
   }
 }

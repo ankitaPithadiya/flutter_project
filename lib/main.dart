@@ -12,6 +12,7 @@ import 'core/app_export.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter(await setHivePath());
+  await PrefUtils.init();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((value) {
     Logger.init(kReleaseMode ? LogMode.live : LogMode.debug);

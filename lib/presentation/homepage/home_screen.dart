@@ -21,6 +21,16 @@ class HomeScreen extends GetWidget<HomeController> {
                 color: Colors.black,
               ),
               onPressed: () {
+                controller.selectDate(context);
+              },
+            ),
+
+            IconButton(
+              icon: Icon(
+                Icons.logout,
+                color: Colors.black,
+              ),
+              onPressed: () {
                 // do something
               },
             )
@@ -62,7 +72,7 @@ class HomeScreen extends GetWidget<HomeController> {
             width: 90.h,
             text: "View Expense",
             onPressed: () {
-              // Get.toNamed(AppRoutes.addExpense);
+              Get.toNamed(AppRoutes.expenseList);
             },
             buttonStyle: CustomButtonStyles.outlineDeepPurple,
             buttonTextStyle: CustomTextStyles.titleSmallGray800,
@@ -96,7 +106,8 @@ class HomeScreen extends GetWidget<HomeController> {
                                 SizedBox(height: 10.v),
                                 Row(
                                   children:[
-                                    Text('Service Id:'),
+                                    Text('Service Id:',style:TextStyle(fontWeight:FontWeight.w600)),
+                                    SizedBox(width: 5.h),
                                     Text(
                                       controller.serviceReportList![index].serviceId.toString(),
                                     )
@@ -105,7 +116,8 @@ class HomeScreen extends GetWidget<HomeController> {
                                 SizedBox(height: 5.v),
                                 Row(
                                     children:[
-                                      Text('Client Location:'),
+                                      Text('Client Location:',style:TextStyle(fontWeight:FontWeight.w600)),
+                                      SizedBox(width: 5.h),
                                       Text(
                                         controller.serviceReportList![index].clientLocation.toString(),
                                       )
@@ -114,25 +126,32 @@ class HomeScreen extends GetWidget<HomeController> {
                                 SizedBox(height: 5.v),
                                 Row(
                                     children:[
-                                      Text('User Name:'),
+                                      Text('User Name:',style:TextStyle(fontWeight:FontWeight.w600)),
+                                      SizedBox(width: 5.h),
                                       Text(
                                         controller.serviceReportList![index].userName.toString(),
                                       )
                                     ]
                                 ),
                                 SizedBox(height: 5.v),
+                                // Row(
+                                //     mainAxisAlignment: MainAxisAlignment.start,
+                                //     children:[
+                                //       Text('User Complain:'),
+                                //       Container(
+                                //         child:Text(
+                                //           controller.serviceReportList![index].userComplaint.toString(),
+                                //           maxLines:4,
+                                //           overflow: TextOverflow.ellipsis,
+                                //         )
+                                //       )
+                                //     ]
+                                // ),
+                                // SizedBox(height: 5.v),
                                 Row(
                                     children:[
-                                      Text('User Complain:'),
-                                      Text(
-                                        controller.serviceReportList![index].userComplaint.toString(),
-                                      )
-                                    ]
-                                ),
-                                SizedBox(height: 5.v),
-                                Row(
-                                    children:[
-                                      Text('Service Type:'),
+                                      Text('Service Type:',style:TextStyle(fontWeight:FontWeight.w600)),
+                                      SizedBox(width: 5.h),
                                       Text(
                                         controller.serviceReportList![index].serviceType.toString(),
                                       )
@@ -141,16 +160,17 @@ class HomeScreen extends GetWidget<HomeController> {
                                 SizedBox(height: 5.v),
                                 Row(
                                     children:[
-                                      Text('Equipment Type:'),
+                                      Text('Equipment Type:',style:TextStyle(fontWeight:FontWeight.w600)),
                                       Text(
                                         controller.serviceReportList![index].equipmentType.toString(),
                                       )
                                     ]
                                 ),
-                                SizedBox(height: 5.v),
+                                SizedBox(height: 5.h),
                                 Row(
                                     children:[
-                                      Text('Service Status:'),
+                                      Text('Service Status:',style:TextStyle(fontWeight:FontWeight.w600)),
+                                      SizedBox(width: 5.h),
                                       Text(
                                         controller.serviceReportList![index].serviceStatus.toString(),
                                       )

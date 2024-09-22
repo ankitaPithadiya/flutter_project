@@ -1,7 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 class ApiEndPoints {
-  static String baseUrl = "http://innovainternational.co.in/portal/api/";
+  static String baseUrl = "http://192.168.1.27:8081/api/";
 
   static String WORDPRESS_URL = "";
   static String ASTRO_URL = "";
@@ -10,7 +10,7 @@ class ApiEndPoints {
   static String XAPI_KEY = "";
   static String RECONNECT_NETWORK_URL = "";
 
-  static String loginApi = "users/login/";
+  static String loginApi = "users/loginapp/";
   static String moneySpendBy="users/getListUsers";
   static String expenseType="ExpenseType/getListExpenseType";
   static String companyList="Company/getListCompany";
@@ -20,6 +20,9 @@ class ApiEndPoints {
   static String equipmentType="EquipmentType/getListEquipmentType";
   static String addService="Service/addService/";
   static String addExpense="Expense/addExpense/";
-  static String serviceList="ServiceVisit/serviceVistiReport/";
+  static String serviceList="ServiceVisit/serviceVistiReport";
+  static String expenseList="Expense/getExpenseReport";
+  static String updateServiceStatus="Service/updateServiceStatus";
+  static String addServiceVisit="ServiceVisit/addServiceVisit";
 
 }

@@ -15,12 +15,12 @@ class ExpenseRepository {
     RequestDropDownList request =
         RequestDropDownList(searchFor: "", pageNumber: 1, rowOfPage: 1000);
 
-    DataResponse response = await wpWrapper.get(
-        ApiEndPoints.expenseType, request.toJson(),
+    DataResponse response = await wpWrapper.post(
+        ApiEndPoints.expenseType, data:request.toJson(),
         shouldShowGlobalErrorToaster: true, showLoader: false);
     if (response.isSuccess == true) {
       ResponseExpenseType responseExpense =
-          ResponseExpenseType.fromJson(json.decode(response.data));
+          ResponseExpenseType.fromJson(response.data);
       List<ExpenseTypeModel>? expenseList =
           responseExpense.getByIDResponseMasterViewModels;
       return expenseList!;
@@ -33,12 +33,12 @@ class ExpenseRepository {
     RequestDropDownList request =
     RequestDropDownList(searchFor: "", pageNumber: 1, rowOfPage: 1000);
 
-    DataResponse response = await wpWrapper.get(
-        ApiEndPoints.moneySpendBy, request.toJson(),
+    DataResponse response = await wpWrapper.post(
+        ApiEndPoints.moneySpendBy, data:request.toJson(),
         shouldShowGlobalErrorToaster: true, showLoader: false);
     if (response.isSuccess == true) {
       ResponseMoneySpendBy responseMoneySpendBy =
-      ResponseMoneySpendBy.fromJson(json.decode(response.data));
+      ResponseMoneySpendBy.fromJson(response.data);
       List<MoneySpendByModel>? moneySpendByList =
           responseMoneySpendBy.moneySpendByModel;
       return moneySpendByList!;

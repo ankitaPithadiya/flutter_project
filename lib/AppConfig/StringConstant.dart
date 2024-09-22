@@ -9,5 +9,6 @@ enum CALL_STATE { IDLE, RINGING, JOINED, ENDED }
 class StringConstant {
   static String tempDir = "TempDir";
   static String access_token = "access_token";
-
+  static String userId = "userid";
+  static String username = "username";
 }
