@@ -24,5 +24,10 @@ class ApiEndPoints {
   static String expenseList="Expense/getExpenseReport";
   static String updateServiceStatus="Service/updateServiceStatus";
   static String addServiceVisit="ServiceVisit/addServiceVisit";
+  static String updateServiceVisitStatus="ServiceVisit/updateServiceVisitStatus";
+  static String updateServiceVisit="ServiceVisit/updateServiceVisit";
+  static String uploadimage="ServiceFeedback/uploadimage";
+  static String addFeedback="ServiceFeedback/addServiceFeedback";
+
 
 }

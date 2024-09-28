@@ -125,7 +125,7 @@ class AddServiceController extends GetxController {
                         serviceRendered: "",
                         serviceStatusID: 2,
                         visitScheduleDate:
-                            DateFormat('dd/MM/yyyy').format(DateTime.now()),
+                            DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()),
                         givePriority: true,
                         make: "",
                         model: "",

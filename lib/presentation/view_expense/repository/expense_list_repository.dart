@@ -10,7 +10,7 @@ import '../models/request_expense_list.dart';
 class ExpenseListRepository {
   final wpWrapper = DioWrapper(apiType: ApiType.WP);
 
-  Future<List<ExpenseReport>> getExpenseList(
+  Future<ResponseExpenseList?> getExpenseList(
       RequestExpenseList requestExpenseList) async {
     DataResponse response = await wpWrapper.post(ApiEndPoints.expenseList,
         data: requestExpenseList.toJson(),
@@ -20,9 +20,9 @@ class ExpenseListRepository {
       ResponseExpenseList responseExpenseList =
           ResponseExpenseList.fromJson(response.data);
       List<ExpenseReport>? expenseList = responseExpenseList.expenseReport;
-      return expenseList!;
+      return responseExpenseList!;
     } else {
-      return [];
+      return null;
     }
   }
 }

@@ -133,7 +133,7 @@ class CustomButtonStyles {
       );
 
   static ButtonStyle get outlineGrayTL28 => OutlinedButton.styleFrom(
-        backgroundColor: Colors.transparent,
+        backgroundColor: appTheme.red300,
         side: BorderSide(
           color: appTheme.gray60002,
           width: 1,
@@ -142,6 +142,17 @@ class CustomButtonStyles {
           borderRadius: BorderRadius.circular(28.h),
         ),
       );
+
+  static ButtonStyle get outlineBlue => OutlinedButton.styleFrom(
+    backgroundColor: appTheme.blue,
+    side: BorderSide(
+      color: appTheme.blue,
+      width: 1,
+    ),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(28.h),
+    ),
+  );
 
   static ButtonStyle get outlineGrayTL81 => OutlinedButton.styleFrom(
         backgroundColor: theme.colorScheme.onErrorContainer,

@@ -47,7 +47,7 @@ class AddExpenseController extends GetxController {
     if (formKey.currentState!.validate()) {
       RequestAddExpense requestExpense = RequestAddExpense(
           expenseDoneBy: moneySpendBy.value.id,
-          serviceID: int.parse(serviceIdController.text),
+          serviceID: serviceIdController.text==""?0:int.parse(serviceIdController.text),
           expenseDate: dateController.text,
           expenseAmount: int.parse(amountController.text.trim()),
           expenseTypeID: expenseTypeModel.value.id,

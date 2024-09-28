@@ -161,6 +161,45 @@ class DioWrapper {
     }
   }
 
+  Future<dynamic> uploadFile(String url,
+      {dynamic data,
+        Options? options,
+        CancelToken? cancelToken,
+        ProgressCallback? onSendProgress,
+        ProgressCallback? onReceiveProgress,
+        BodyType bodytype = BodyType.RAW,
+        bool showLoader = true,
+        bool shouldShowGlobalErrorToaster = true}) async {
+    try {
+      if (showLoader) {
+        UIUtils.showProgressDialog(isCancellable: false);
+      }
+
+      final Response response = await _dio.post(url,
+          data:  data,
+          options: options,
+          cancelToken: cancelToken,
+          onReceiveProgress: onReceiveProgress,
+          onSendProgress: onSendProgress);
+      if (showLoader) {
+        UIUtils.hideProgressDialog();
+      }
+      return DataResponse.mapResponse(response, apiType);
+    } on DioException catch (e) {
+      if (showLoader) {
+        UIUtils.hideProgressDialog();
+      }
+      final ApiException apiException = ApiException.fromDioError(e, apiType);
+      var dataResponse = DataResponse();
+      dataResponse.isSuccess = false;
+      dataResponse.message = apiException.message;
+      if (shouldShowGlobalErrorToaster == true) {
+        UIUtils.showSnakBar(bodyText: apiException.message, headerText: "");
+      }
+      return dataResponse;
+    }
+  }
+
   Future<String> downloadFile(
     String url, {
     bool getFromCache = true,

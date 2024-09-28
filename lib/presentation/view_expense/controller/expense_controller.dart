@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:intl/intl.dart';
 
+import '../../../AppConfig/StringConstant.dart';
+import '../../../AppUtils/ui_utils.dart';
 import '../../../core/app_export.dart';
 import '../models/expenselist_model.dart';
 import '../models/request_expense_list.dart';
@@ -14,7 +16,16 @@ class ExpenseViewController extends GetxController {
 
   RxList<ExpenseReport>? expenseViewList = <ExpenseReport>[].obs;
 
-  Rx<String>? toDate=DateFormat('dd/MM/yyyy').format(DateTime.now()).obs;
+  var date = DateTime.now();
+
+  ResponseExpenseList? responseExpenseList;
+
+  //Rx<String>? toDate=DateFormat('dd/MM/yyyy').format(DateTime.now()).obs;
+
+  Rx<String>? rangeStartDate=DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()).obs;
+  Rx<String>? rangeEndDate=DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()).obs;
+  Rx<String>? noItemsFound = "".obs;
+
 
 
 
@@ -22,38 +33,79 @@ class ExpenseViewController extends GetxController {
 
   @override
   onInit() {
+    var newDate = DateTime(date.year, date.month - 1, date.day);
+    rangeEndDate!.value=DateFormat('yyyy-MM-dd HH:mm:ss').format(newDate);
     getExpenseList();
   }
 
-  Future<Null> selectDate(BuildContext context) async {
-    await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2012),
-      lastDate: DateTime(2025),
-    ).then((selectedDate) {
-      if (selectedDate != null) {
-        toDate!.value =
-            DateFormat('dd/MM/yyyy').format(selectedDate);
-        //getServiceList();
-      }
-    });
-  }
+
 
 
 
   void getExpenseList() async{
+    String userId = await PrefUtils.getString(StringConstant.userId);
     RequestExpenseList request=RequestExpenseList(
-        fromDate:"22/08/2024",
-        toDate:"22/09/2024",
+        fromDate:rangeStartDate!.value,
+        toDate:rangeEndDate!.value,
         companyId: 0,
-        expenseDoneBy: 0
+        expenseDoneBy: int.parse(userId)
     );
-    expenseViewList!.value = await expenseRepo.getExpenseList(request);
+    responseExpenseList = await expenseRepo.getExpenseList(request);
+    if (responseExpenseList!.meta!.code == 1) {
+      expenseViewList!.value = responseExpenseList!.expenseReport!;
+      expenseViewList!.refresh();
+    } else {
+      expenseViewList!.value.clear();
+      expenseViewList!.refresh();
+      noItemsFound!.value = responseExpenseList!.meta!.message!;
+      UIUtils.showSnakBar(
+          bodyText: responseExpenseList!.meta!.message!,
+          headerText: "Error Message");
+    }
   }
 
   @override
   void onClose() {
     super.onClose();
+  }
+
+
+  static Future<DateTimeRange?> showDateRangePickerDialog(
+      {required context,
+        required labelName,
+        DateTimeRange? selectedDateTimeRange,
+        DateTime? maxDateRange}) async {
+    return await showDateRangePicker(
+        context: context,
+        // Example: set your desired minimum date
+        firstDate: maxDateRange ?? DateTime.now(),
+        // Example: set your desired maximum date
+        lastDate: DateTime.now(),
+        currentDate: DateTime.now(),
+        initialEntryMode: DatePickerEntryMode.calendar,
+        helpText: labelName,
+        builder: (context, child) {
+
+            return child!;
+          },
+
+        initialDateRange: selectedDateTimeRange);
+  }
+
+  Future<void> selectDateRange(BuildContext context) async {
+    var pickDateRangeTime = await showDateRangePickerDialog(
+        context: context,
+        labelName: 'lbl_select_date'.tr,
+        maxDateRange: DateTime(2015));
+    if (pickDateRangeTime != null) {
+      rangeStartDate!.value = dateFormater(pickDateRangeTime.start);
+      rangeEndDate!.value = dateFormater(pickDateRangeTime.end);
+      getExpenseList();
+    }
+  }
+
+  String dateFormater(DateTime selectedDate) {
+    final DateFormat formatter = DateFormat('yyyy-MM-dd HH:mm:ss');
+    return formatter.format(selectedDate);
   }
 }

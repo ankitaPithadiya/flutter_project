@@ -322,7 +322,8 @@ class PrimaryColors {
   Color get purple800 => Color(0XFF5F259F);
 
 // Red
-  Color get red300 => Color(0XFFE46962);
+  Color get red300 => Color(0XFFe74c3c);
+  Color get blue => Color(0XFF0f79f3);
 
   Color get red50 => Color(0XFFFCEEEE);
 

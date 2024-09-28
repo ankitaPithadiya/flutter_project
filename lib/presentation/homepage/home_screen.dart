@@ -24,13 +24,13 @@ class HomeScreen extends GetWidget<HomeController> {
                 controller.selectDate(context);
               },
             ),
-
             IconButton(
               icon: Icon(
                 Icons.logout,
                 color: Colors.black,
               ),
               onPressed: () {
+                controller.logout(context);
                 // do something
               },
             )
@@ -92,47 +92,55 @@ class HomeScreen extends GetWidget<HomeController> {
                   return Card.outlined(
                       elevation: 5,
                       color: appTheme.gray100,
-                      margin: EdgeInsets.symmetric(horizontal: 10.h,vertical:10.v),
+                      margin: EdgeInsets.symmetric(
+                          horizontal: 10.h, vertical: 10.v),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(30))),
                       child: ListTile(
                         title: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.max,
                           children: [
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 SizedBox(height: 10.v),
-                                Row(
-                                  children:[
-                                    Text('Service Id:',style:TextStyle(fontWeight:FontWeight.w600)),
-                                    SizedBox(width: 5.h),
-                                    Text(
-                                      controller.serviceReportList![index].serviceId.toString(),
-                                    )
-                                  ]
-                                ),
+                                Row(children: [
+                                  Text('Service Id:',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600)),
+                                  SizedBox(width: 5.h),
+                                  Text(
+                                    controller
+                                        .serviceReportList![index].serviceId
+                                        .toString(),
+                                  )
+                                ]),
                                 SizedBox(height: 5.v),
-                                Row(
-                                    children:[
-                                      Text('Client Location:',style:TextStyle(fontWeight:FontWeight.w600)),
-                                      SizedBox(width: 5.h),
-                                      Text(
-                                        controller.serviceReportList![index].clientLocation.toString(),
-                                      )
-                                    ]
-                                ),
+                                Row(children: [
+                                  Text('Client Location:',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600)),
+                                  SizedBox(width: 5.h),
+                                  Text(
+                                    controller.serviceReportList![index]
+                                        .clientLocation
+                                        .toString(),
+                                  )
+                                ]),
                                 SizedBox(height: 5.v),
-                                Row(
-                                    children:[
-                                      Text('User Name:',style:TextStyle(fontWeight:FontWeight.w600)),
-                                      SizedBox(width: 5.h),
-                                      Text(
-                                        controller.serviceReportList![index].userName.toString(),
-                                      )
-                                    ]
-                                ),
+                                Row(children: [
+                                  Text('User Name:',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600)),
+                                  SizedBox(width: 5.h),
+                                  Text(
+                                    controller
+                                        .serviceReportList![index].userName
+                                        .toString(),
+                                  )
+                                ]),
                                 SizedBox(height: 5.v),
                                 // Row(
                                 //     mainAxisAlignment: MainAxisAlignment.start,
@@ -148,34 +156,92 @@ class HomeScreen extends GetWidget<HomeController> {
                                 //     ]
                                 // ),
                                 // SizedBox(height: 5.v),
-                                Row(
-                                    children:[
-                                      Text('Service Type:',style:TextStyle(fontWeight:FontWeight.w600)),
-                                      SizedBox(width: 5.h),
-                                      Text(
-                                        controller.serviceReportList![index].serviceType.toString(),
-                                      )
-                                    ]
-                                ),
+                                Row(children: [
+                                  Text('Service Type:',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600)),
+                                  SizedBox(width: 5.h),
+                                  Text(
+                                    controller
+                                        .serviceReportList![index].serviceType
+                                        .toString(),
+                                  )
+                                ]),
                                 SizedBox(height: 5.v),
-                                Row(
-                                    children:[
-                                      Text('Equipment Type:',style:TextStyle(fontWeight:FontWeight.w600)),
-                                      Text(
-                                        controller.serviceReportList![index].equipmentType.toString(),
-                                      )
-                                    ]
-                                ),
+                                Row(children: [
+                                  Text('Equipment Type:',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600)),
+                                  Text(
+                                    controller
+                                        .serviceReportList![index].equipmentType
+                                        .toString(),
+                                  )
+                                ]),
                                 SizedBox(height: 5.h),
-                                Row(
-                                    children:[
-                                      Text('Service Status:',style:TextStyle(fontWeight:FontWeight.w600)),
-                                      SizedBox(width: 5.h),
-                                      Text(
-                                        controller.serviceReportList![index].serviceStatus.toString(),
-                                      )
-                                    ]
-                                )
+                                Row(children: [
+                                  Text('Service Status:',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600)),
+                                  SizedBox(width: 5.h),
+                                  Text(
+                                    controller
+                                        .serviceReportList![index].serviceStatus
+                                        .toString(),
+                                  )
+                                ]),
+
+                                SizedBox(height: 10.v),
+
+                                controller
+                                    .serviceReportList![index].serviceStatus
+                                    .toString()=="Assign"?Row(children: <Widget>[
+                                  CustomOutlinedButton(
+                                    height: 40.v,
+                                    width: 90.h,
+                                    text: " Not Visited",
+                                    buttonTextStyle:TextStyle(color:Colors.white,fontSize:12),
+                                    onPressed: () {
+                                      controller.updateStatus(context,controller.serviceReportList![index].serviceId!,controller.serviceReportList![index].serviceVisitID!);
+                                    },
+                                    buttonStyle:
+                                        CustomButtonStyles.outlineGrayTL28,
+                                    // buttonTextStyle:
+                                    //     CustomTextStyles.titleSmallGray800,
+                                    alignment: Alignment.bottomCenter,
+                                  ),
+                                  SizedBox(width: 10.h),
+                                  CustomOutlinedButton(
+                                    height: 40.v,
+                                    width: 90.h,
+                                    text: "Not Solved",
+                                    onPressed: () {
+                                      Get.toNamed(AppRoutes.notSolved, arguments: {'serviceId': controller.serviceReportList![index].serviceId!,'serviceVisitId':controller.serviceReportList![index].serviceVisitID!});
+                                    },
+                                    buttonTextStyle:TextStyle(color:Colors.white,fontSize:12),
+                                    buttonStyle:
+                                        CustomButtonStyles.outlineGrayTL28,
+                                    // buttonTextStyle:
+                                    //     CustomTextStyles.titleSmallGray800,
+                                    alignment: Alignment.bottomCenter,
+                                  ),
+                                  SizedBox(width: 10.h),
+                                  CustomOutlinedButton(
+                                    height: 40.v,
+                                    width: 90.h,
+                                    text: "Solved",
+                                    onPressed: () {
+                                      Get.toNamed(AppRoutes.solvedEng, arguments: {'serviceId': controller.serviceReportList![index].serviceId!,'serviceVisitId':controller.serviceReportList![index].serviceVisitID!});
+                                    },
+                                    buttonStyle:
+                                        CustomButtonStyles.outlineBlue,
+                                    buttonTextStyle:TextStyle(color:Colors.white,fontSize:12),
+                                    alignment: Alignment.bottomCenter,
+                                  ),
+                                ]):SizedBox(),
+                                controller
+                                    .serviceReportList![index].serviceStatus
+                                    .toString()=="Assign"?SizedBox(height: 5.v):SizedBox(),
                               ],
                             ),
                           ],

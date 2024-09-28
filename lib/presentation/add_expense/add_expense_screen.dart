@@ -207,12 +207,12 @@ class AddExpenseScreen extends GetWidget<AddExpenseController> {
         hintText: "Service Id",
         alignment: Alignment.center,
         textInputType: TextInputType.number,
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return "Please Enter Number";
-          }
-          return null;
-        },
+        // validator: (value) {
+        //   if (value == null || value.isEmpty) {
+        //     return "Please Enter Number";
+        //   }
+        //   return null;
+        // },
         borderDecoration: FloatingTextFormFieldStyleHelper.outlineGrayTL42,
       ),
     );

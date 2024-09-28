@@ -22,7 +22,7 @@ class ViewExpenseScreen extends GetWidget<ExpenseViewController> {
               ),
               onPressed: () {
                 // do something
-                controller.selectDate(context);
+                controller.selectDateRange(context);
               },
             )
           ]),
