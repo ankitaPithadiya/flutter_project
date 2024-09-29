@@ -78,52 +78,9 @@ class AddExpenseScreen extends GetWidget<AddExpenseController> {
                         ),
                       )),
                   SizedBox(height: 16.v),
-                  Obx(
-                    () => Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16.h),
-                      child: Center(
-                        child: DropdownButtonFormField<MoneySpendByModel>(
-                          //isDense: true,
-                          hint: Text('Money Spend By'),
-                          iconSize: 24,
-                          elevation: 16,
-                          decoration: InputDecoration(
-                            contentPadding:
-                                EdgeInsets.fromLTRB(16.h, 19.v, 16.h, 17.v),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(4.h),
-                              borderSide: BorderSide(
-                                color: appTheme.gray900,
-                                width: 1,
-                              ),
-                            ),
-                          ),
-                          //style: TextStyle(color: Colors.deepPurple),
-                          onChanged: (value) {
-                            controller.moneySpendBy.value=value!;
-                          },
-                          items: controller.moneySpendByList!.value
-                              .map<DropdownMenuItem<MoneySpendByModel>>(
-                                  (MoneySpendByModel value) {
-                            return DropdownMenuItem<MoneySpendByModel>(
-                              value: value,
-                              child: Text(value.fullName!,style:CustomTextStyles.bodyMediumBlack900),
-                            );
-                          }).toList(),
-                          validator: (MoneySpendByModel? value) {
-                            return value == null ? "Select MoneySpend By" : null;
-                          },
-
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 16.v),
                   _buildExpensesDate(context),
                   SizedBox(height: 16.v),
                   _buildServiceId(),
-                  SizedBox(height: 16.v),
-                  _buildRemark(),
                   SizedBox(height: 16.v),
                   _buildAmount()
                 ],
@@ -142,13 +99,13 @@ class AddExpenseScreen extends GetWidget<AddExpenseController> {
       padding: EdgeInsets.symmetric(horizontal: 16.h),
       child: CustomFloatingTextField(
         controller: controller.remarkController,
-        labelText: "Remark",
+        labelText: "Expense Description",
         labelStyle: theme.textTheme.bodyLarge!,
-        hintText: "Remark",
+        hintText: "Expense Description",
         alignment: Alignment.center,
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return "Please Enter Remark";
+            return "Please Enter Expense Description";
           }
           return null;
 
@@ -245,10 +202,10 @@ class AddExpenseScreen extends GetWidget<AddExpenseController> {
       padding: EdgeInsets.symmetric(horizontal: 16.h),
       child: CustomFloatingTextField(
         controller: controller.amountController,
-        labelText: "Add Amount",
+        labelText: "Amount",
         textInputType: TextInputType.number,
         labelStyle: theme.textTheme.bodyLarge!,
-        hintText: "Please add amount",
+        hintText: "Amount",
         alignment: Alignment.center,
         validator: (value) {
           if (value == null || value.isEmpty) {

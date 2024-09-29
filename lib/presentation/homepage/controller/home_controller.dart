@@ -183,6 +183,7 @@ class HomeController extends GetxController {
                 ResponseServiceStatusUpdate.fromJson(response.data);
             {
               if (responseServiceUpdate.meta!.code == 1) {
+                getServiceList();
                 Get.back();
               }else{
                 Get.back();

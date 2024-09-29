@@ -45,8 +45,8 @@ class ExpenseViewController extends GetxController {
   void getExpenseList() async{
     String userId = await PrefUtils.getString(StringConstant.userId);
     RequestExpenseList request=RequestExpenseList(
-        fromDate:rangeStartDate!.value,
-        toDate:rangeEndDate!.value,
+        fromDate:rangeEndDate!.value,
+        toDate:rangeStartDate!.value,
         companyId: 0,
         expenseDoneBy: int.parse(userId)
     );
@@ -98,8 +98,8 @@ class ExpenseViewController extends GetxController {
         labelName: 'lbl_select_date'.tr,
         maxDateRange: DateTime(2015));
     if (pickDateRangeTime != null) {
-      rangeStartDate!.value = dateFormater(pickDateRangeTime.start);
-      rangeEndDate!.value = dateFormater(pickDateRangeTime.end);
+      rangeEndDate!.value = dateFormater(pickDateRangeTime.start);
+      rangeStartDate!.value = dateFormater(pickDateRangeTime.end);
       getExpenseList();
     }
   }

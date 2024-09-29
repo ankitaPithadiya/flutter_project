@@ -112,7 +112,7 @@ class NotSolvedScreen extends GetWidget<NotSolvedController> {
       child: CustomFloatingTextField(
         controller: controller.srNoController,
         labelText: "Sr No",
-        textInputType: TextInputType.number,
+        textInputType: TextInputType.text,
         // labelStyle: theme.textTheme.bodyLarge!,
         hintText: "Sr No",
         alignment: Alignment.center,

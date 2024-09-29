@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../AppConfig/StringConstant.dart';
 import '../../../core/app_export.dart';
 import '../../../data/models/selectionPopupModel/selection_popup_model.dart';
 import '../../../network/service/data_response.dart';
@@ -44,14 +45,15 @@ class AddExpenseController extends GetxController {
   }
 
   void addExpense(BuildContext context) async {
+    String userId = await PrefUtils.getString(StringConstant.userId);
     if (formKey.currentState!.validate()) {
       RequestAddExpense requestExpense = RequestAddExpense(
-          expenseDoneBy: moneySpendBy.value.id,
+          expenseDoneBy: int.parse(userId),
           serviceID: serviceIdController.text==""?0:int.parse(serviceIdController.text),
           expenseDate: dateController.text,
           expenseAmount: int.parse(amountController.text.trim()),
           expenseTypeID: expenseTypeModel.value.id,
-          expenseRemark: remarkController.text,
+          expenseRemark: "",
           createdBy: 0);
 
       DataResponse response = await exRepo.addExpense(requestExpense);

@@ -50,7 +50,7 @@ class AddServiceController extends GetxController {
     getServiceList();
     getClientList();
     getEquipmentList();
-    getClientLocationList();
+    //getClientLocationList();
   }
 
   void getCompanyList() async {
@@ -60,12 +60,12 @@ class AddServiceController extends GetxController {
   Rx<List<SelectionPopupModel>> dropdownItemList = Rx([
     SelectionPopupModel(
       id: 1,
-      title: "true",
+      title: "Yes",
       isSelected: true,
     ),
     SelectionPopupModel(
       id: 2,
-      title: "false",
+      title: "No",
     ),
   ]);
 
@@ -81,8 +81,8 @@ class AddServiceController extends GetxController {
     equipmentList!.value = await addServiceRepo.getEquipmentList();
   }
 
-  void getClientLocationList() async {
-    clientLocationList!.value = await addServiceRepo.getClientLocation();
+  void getClientLocationList(int? clientID) async {
+    clientLocationList!.value = await addServiceRepo.getClientLocation(clientID);
   }
 
   void addService(BuildContext context) async {

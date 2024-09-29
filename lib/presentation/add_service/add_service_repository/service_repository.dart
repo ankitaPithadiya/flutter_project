@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import '../../../ApiServices/api_endpoints.dart';
+import '../../../AppConfig/StringConstant.dart';
 import '../../../common_request_model/common_request_model.dart';
+import '../../../core/utils/pref_utils.dart';
 import '../../../network/service/data_response.dart';
 import '../../../network/service/http_wrapper.dart';
 import '../models/add_service_model.dart';
@@ -85,9 +87,10 @@ class AddServiceRepository {
     }
   }
 
-  Future<List<ClientLocationModel>> getClientLocation() async {
+  Future<List<ClientLocationModel>> getClientLocation(int? clientID) async {
+    //String userId = await PrefUtils.getString(StringConstant.userId);
     RequestDropDownList request =
-        RequestDropDownList(searchFor: "", pageNumber: 1, rowOfPage: 1000);
+        RequestDropDownList(searchFor: clientID.toString(), pageNumber: 1, rowOfPage: 1000);
 
     DataResponse response = await wpWrapper.post(
         ApiEndPoints.clientLocation, data:request.toJson(),

@@ -103,6 +103,7 @@ class AddServiceScreen extends GetWidget<AddServiceController> {
                             style: TextStyle(color: Colors.black),
                             onChanged: (value) {
                               controller.clientModel.value=value!;
+                              controller.getClientLocationList(value.id);
                             },
                             items: controller.clientList!.value
                                 .map<DropdownMenuItem<ClientModel>>(
@@ -142,6 +143,7 @@ class AddServiceScreen extends GetWidget<AddServiceController> {
                             style: TextStyle(color: Colors.black),
                             onChanged: (value) {
                               controller.clientLocationModel.value=value!;
+
                             },
                             items: controller.clientLocationList!.value
                                 .map<DropdownMenuItem<ClientLocationModel>>(
@@ -297,7 +299,7 @@ class AddServiceScreen extends GetWidget<AddServiceController> {
       child: CustomFloatingTextField(
         controller: controller.firstNameController,
         labelText: "User Name",
-        // labelStyle: theme.textTheme.bodyLarge!,
+         labelStyle: TextStyle(fontSize:14,color:Colors.black),
         hintText: "User Name",
         hintStyle:TextStyle(fontSize:14,color:Colors.black),
         alignment: Alignment.center,
@@ -325,7 +327,7 @@ class AddServiceScreen extends GetWidget<AddServiceController> {
         controller: controller.userComplainController,
         labelText: "User Complain",
         textInputType: TextInputType.text,
-        // labelStyle: theme.textTheme.bodyLarge!,
+        labelStyle: TextStyle(fontSize:14,color:Colors.black),
         hintText: "User Complain",
         alignment: Alignment.center,
         hintStyle:TextStyle(fontSize:14,color:Colors.black),

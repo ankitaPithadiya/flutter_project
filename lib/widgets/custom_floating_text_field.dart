@@ -207,9 +207,9 @@ class CustomFloatingTextField extends StatelessWidget {
             width: 1,
           ),
         ),
-        errorStyle: TextStyle(
-          color: appTheme.red900,
-          fontSize: 12.fSize,
-        ),
+        // errorStyle: TextStyle(
+        //   color:Colors.black,
+        //   fontSize: 12.fSize,
+        // ),
       );
 }

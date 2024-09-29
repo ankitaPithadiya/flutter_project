@@ -7,6 +7,7 @@ import '../../../core/app_export.dart';
 import '../../../network/service/data_response.dart';
 import '../../add_service/models/request_update_service.dart';
 import '../../add_service/models/response_service_update.dart';
+import '../../homepage/controller/home_controller.dart';
 import '../models/request_service_visit_update.dart';
 import '../repository/not_solved_repo.dart';
 
@@ -71,6 +72,8 @@ class NotSolvedController extends GetxController {
               ResponseServiceStatusUpdate.fromJson(response.data);
               {
                 if (responseServiceUpdate.meta!.code == 1) {
+                  var controller=Get.put(HomeController());
+                  controller.getServiceList();
                   Get.back();
 
                 }else{
